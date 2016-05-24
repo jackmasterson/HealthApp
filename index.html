@@ -3,14 +3,25 @@
 <head>
 	<meta charset="utf-8">
 	<title>Track Ya Health</title>
-	<link href="css/style.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<input class="searchBar" type="search" placeholder="What'd Ya Eat Today?"></input>	
-	<input class="minBar" type="search" placeholder="Calorie Minimum"></input>
-	<input class="maxBar" type="search" placeholder="Calorie Maximum"></input>
+	
+	<ul class="search-ul">
+		<li class="search-li">
+			<input class="searchBar" type="search" placeholder="What'd Ya Eat Today"></input>	
+		</li>
+		<li class="search-li">
+			<input class="minBar" type="search" placeholder="Calorie Minimum"></input>
+		</li>
+		<li class="search-li">
+			<input class="maxBar" type="search" placeholder="Calorie Maximum"></input>
+		</li>
+		<li class="search-li">
+			<button class="searchButton">Click to Search!</button>
+		</li>
+	</ul>
 
-	<button class="searchButton"></button>
 	<div class="search-fill">
 		Fills with the health API food, calories, etc as the person types
 	</div>
