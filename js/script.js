@@ -13,7 +13,9 @@ var nutr = {
 		      self.searched = $(search[0]).val();
 		      self.calMin = $(calMin[0]).val();
 		      self.calMax = $(calMax[0]).val();
+		      $(".search-fill").slideDown();
 		      self.init();
+
 		   
 		});	
 	},
@@ -68,7 +70,7 @@ var nutr = {
 				});
 			//	console.log(model.foodInfo);
 				var itemHead = '<h4><a onClick="add.init()">'+item+'-'+brand+'</h4>'+
-					'<h4>'+cal+' '+serving+' '+unit+'</h4></a>';
+					'<h4>'+cal+' calories, '+serving+' '+unit+'</h4></a>';
 				$('.search-fill').append(itemHead);
 			}
 		})

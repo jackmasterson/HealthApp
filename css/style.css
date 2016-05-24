@@ -6,3 +6,14 @@
 .search-li {
 	margin: 1%;
 }
+
+.search-fill {
+	height: 300px;
+	width: 500px;
+	overflow: scroll;
+	background-color: #ccc;
+	border: 1px solid black;
+	text-align: center;
+	margin-left: 27vw;
+	display: none;
+}
