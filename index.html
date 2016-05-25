@@ -7,19 +7,16 @@
 </head>
 <body>
 
-	<div class="food-div">
-	   
-	</div>
 
 	<script class="food-template" type="text/template">
 	
 	    <ul>
-	        <li><%= item %></li>
-	        <li><%= brand %></li>
-	        <li><%= cal %></li>
+	        <li><span class="temp-head">Food Item: </span><%= item %></li>
+	        <li><span class="temp-head">Brand: </span><%= brand %></li>
+	        <li><span class="temp-head">Calories: </span><%= cal %></li>
 	    </ul>
 
-	    <button class="delete">Delete</button>
+	    <button class="add">Add</button>
 	</script>
 
 
@@ -37,6 +34,7 @@
 		<li class="search-li">
 			<input class="maxBar" type="search" placeholder="Calorie Maximum"></input>
 		</li>
+		<button class="searchButton">Click to Search</button>
 	</ul>
 	<div class="greater-search">
 		<div class="meal-div">		
