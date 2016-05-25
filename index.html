@@ -17,18 +17,40 @@
 		<li class="search-li">
 			<input class="maxBar" type="search" placeholder="Calorie Maximum"></input>
 		</li>
-		<li class="search-li">
-			<button class="searchButton">Click to Search!</button>
-		</li>
 	</ul>
-
-	<div class="search-fill"></div>
-	<div class="eaten">
-		<h1 class="eaten-head">Today, I've Eaten:</h1>
-		When clicked, foods will go here
-		<h2 class="calorie-count">Calories: Add and adjust on update</h2>
-
+	<div class="greater-search">
+		<div class="meal-div">		
+			<ul class="meals">
+				<li class="eat breakfast" onClick="toggle.bfast()">Breakfast</li>
+				<li class="eat lunch" onClick="toggle.lunch()">Lunch</li>
+				<li class="eat dinner" onClick="toggle.dinner()">Dinner</li>
+			</ul>
+		</div>
+		<div class="search-fill">
+			<button onClick="toggle.hide()" class="hide">Click to Hide</button>
+		</div>
 	</div>
+		<h1 class="eaten-head">Today, I've Eaten:</h1>
+		<div class="meals-eaten">
+			<div class="meal-save breakfast-save">
+				<ul class="float bmeal">Breakfast</ul>
+				<ul class="float bcal">Calories</ul>
+			</div>			
+			<div class="meal-save lunch-save">
+				<ul class="float lmeal">Lunch</ul>
+				<ul class="float lcal">Calories</ul>
+			</div>			
+			<div class="meal-save dinner-save">
+				<ul class="float dmeal">Dinner</ul>
+				<ul class="float dcal">Calories</ul>
+			</div>
+		</div>
+
+		<div class="total-cal">
+			<h2 class="calorie-count">Calories: Add and adjust on update</h2>
+		</div>
+
+
 	<script src="js/lib/jquery-1.12.4.min.js"></script>
 	<script src="js/lib/underscore-min.js"></script>
 	<script src="js/lib/backbone-min.js"></script>

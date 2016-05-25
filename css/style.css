@@ -1,3 +1,7 @@
+*{
+	text-align: center;
+	list-style-type: none;
+}
 .search-ul {
 	list-style-type: none;
 	text-align: center;
@@ -16,4 +20,78 @@
 	text-align: center;
 	margin-left: 27vw;
 	display: none;
+	z-index: 4;
+}
+
+.hide {
+	position: fixed;
+}
+
+.meals {
+	list-style-type: none;
+	display: inline-block;
+	display: none;
+	margin: 2%;
+	background: #ccc;
+	border: 1px solid #ccd;
+	position: absolute;
+	z-index: 5;
+	left: 30vw;
+	top: 25vh;
+	width: 33vw;
+	font-size: 20px;
+	text-align: center;
+}
+
+.eat {
+	border: 1px solid black;
+	border-radius: 35px;
+	text-align: center;
+	padding: 5%;
+}
+
+.meals-eaten {
+	display: inline;
+	width: 100vw;
+}
+
+.breakfast-save {
+	margin-right: 0;
+}
+.meal-save {
+	display: inline;
+	list-style-type: none;
+	display: none;
+	height: 100px;
+	width: 30vw;
+	font-size: 10px;
+	text-align: center;
+	font-style: bold;
+	margin-right: 0;
+	float: left;
+	border: 1px solid #ccc;
+}
+
+table {
+	font-size: 10px;
+}
+
+.float {
+	width: 50%;
+	float: left;
+	padding: 0;
+	margin: 0;
+
+}
+
+.food-head {
+	font-size: 15px;
+}
+
+.food-sub-head {
+	font-size: 10px;
+}
+
+.total-cal {
+	margin-top: 20%;
 }
