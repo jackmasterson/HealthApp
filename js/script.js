@@ -15,7 +15,8 @@
 		tagName: 'div',
 		className: 'food-div',		
 		events: {
-			"click button.add": "addTo"
+			"click button.add": "addTo",
+			"click button.bfast": "addFast"
 		},
 		template: _.template( $( '.food-template' ).html() ),
 
@@ -30,21 +31,26 @@
 			e.preventDefault();
 			var clicked;
 			var formData = {};
-			var formHead = [];
-			var formItem = [];
-			this.but = document.getElementsByClassName('add');
-			console.log(this);
-		//	console.log(this.but);
-		//	console.log(this.$el);
+			//var formHead = [];
+			//var formItem = [];
 			console.log(this.el);
+			console.log(this.el.innerText);
+			//console.log(el);
+		/*	if( this.el.innerText !='') {
+				
+				formData[this.el.innerText] = this.el.innerText;
 
-	//		console.log(formData);
-			//this.collection.add( new foodItem(formData));
-			$('.meals').slideDown();
-			//console.log(this);
-		// 	console.log(formData);
+			}*/
+		//	console.log(formData);
+			$('.meal').slideDown();
+		},
+
+		addFast: function(){
+			console.log('most important meal of the day!');
 		}
 	});
+
+	//console.log($('a.bfast')[0]);
 
 	var foodListView = Backbone.View.extend({
 		el: '.search-fill',

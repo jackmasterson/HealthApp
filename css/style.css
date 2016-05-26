@@ -2,6 +2,12 @@
 	text-align: center;
 	list-style-type: none;
 }
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
 .search-ul {
 	list-style-type: none;
 	text-align: center;
@@ -24,6 +30,14 @@
 
 .hide {
 	position: fixed;
+}
+
+.meal {
+	display: none;
+}
+
+.meal-li {
+	display: inline-block;
 }
 
 .meals {
