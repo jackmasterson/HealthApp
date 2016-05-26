@@ -16,7 +16,9 @@
 		className: 'food-div',		
 		events: {
 			"click button.add": "addTo",
-			"click button.bfast": "addFast"
+			"click button.bfast": "addFast",
+			"click button.lunch": "addLunch",
+			"click button.dinner": "addDin"
 		},
 		template: _.template( $( '.food-template' ).html() ),
 
@@ -41,12 +43,21 @@
 				formData[this.el.innerText] = this.el.innerText;
 
 			}*/
-		//	console.log(formData);
-			$('.meal').slideDown();
+
+			this.$('.meal').slideDown();
+
 		},
 
 		addFast: function(){
 			console.log('most important meal of the day!');
+		},
+
+		addLunch: function(){
+			console.log('lunch is fine');
+		},
+
+		addDin: function(){
+			console.log('dinnah');
 		}
 	});
 
