@@ -13,22 +13,41 @@
 
 	var foodView = Backbone.View.extend({
 		tagName: 'div',
-		className: 'food-div',
+		className: 'food-div',		
+		events: {
+			"click button.add": "addTo"
+		},
 		template: _.template( $( '.food-template' ).html() ),
 
 		render: function() {
 			this.$el.html( this.template( this.model.attributes ) );
 
 			return this;
+		},
+
+		addTo: function(e){
+			//console.log(e);
+			e.preventDefault();
+			var clicked;
+			var formData = {};
+			var formHead = [];
+			var formItem = [];
+			this.but = document.getElementsByClassName('add');
+			console.log(this);
+		//	console.log(this.but);
+		//	console.log(this.$el);
+			console.log(this.el);
+
+	//		console.log(formData);
+			//this.collection.add( new foodItem(formData));
+			$('.meals').slideDown();
+			//console.log(this);
+		// 	console.log(formData);
 		}
 	});
 
 	var foodListView = Backbone.View.extend({
-		el: '.search-fill',		
-		events: {
-			"click button.add": "addTo"
-		},
-
+		el: '.search-fill',
 
 		initialize: function( initialFoods ) {
 
@@ -40,6 +59,7 @@
 		render: function() {
 
 			this.collection.each(function( item ) {
+				//console.log(item);
 				this.renderFood( item );
 			}, this );
 		},
@@ -49,30 +69,33 @@
 				model: item
 			});
 			this.$el.append( eatView.render().el );
-		},
-
-		addTo: function(e){
-			e.preventDefault();
-			var formData = {};
-			
-			//console.log($('.search-fill div ul')[0].innerText)
-			$('.search-fill div ul li').each(function(i, el){
-				
+		}
+	});
+/*			$('.search-fill div ul li span.temp-head').each(function(i, el){
 				console.log(el.innerText);
+			//	console.log(el.innerText);
+		//	console.log(head);
+		//		console.log(el);
+
+		//	for(var t=0; t<3; t++){
+			//	console.log(head[t].innerHTML);
+			//	var header = head[t].innerHTML;
+			//	var headItem = tempItem[t].innerHTML;
+
+			//	formData[tex];
+				
+		//		console.log(el);
+			
+			//	console.log(i);
+
 				//console.log($(el).val());
 				if( el.innerText !='')
 				{
-					formData[el] = el.innerText
+					formData[el.innerText] = el.innerText;
 				}
-				console.log(formData);
-			});
-
-			//this.collection.add( new foodItem(formData));
-			$('.meals').slideDown();
-			//console.log(this);
-		}
-	});
-
+		//	}
+			//	console.log(formData);
+			});*/
 
 
 var foodInfo = [];
@@ -95,6 +118,7 @@ $(function() {
 		        that.calMin = $(calMin[0]).val();
 		        that.calMax = $(calMax[0]).val();
 		        that.nutrInit(); 
+		     //   $('.search-fill').slideDown();
 		    });
 		},	
 

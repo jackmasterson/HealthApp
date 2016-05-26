@@ -9,14 +9,15 @@
 
 
 	<script class="food-template" type="text/template">
-	
-	    <ul>
-	        <li><span class="temp-head">Food Item: </span><%= item %></li>
-	        <li><span class="temp-head">Brand: </span><%= brand %></li>
-	        <li><span class="temp-head">Calories: </span><%= cal %></li>
-	    </ul>
+		<div class="food-temp-div">
+		    <ul>
+		        <li><span class="test temp-head">Item</span>: <span class="test temp-item"><%= item %></span></li>
+		        <li><span class="temp-head">Brand</span>: <span class="temp-item"><%= brand %></span></li>
+		        <li><span class="temp-head">Calories</span>: <span class="temp-item"><%= cal %></span></li>
+		    </ul>
 
-	    <button class="add">Add</button>
+		    <button class="add">Add</button>
+	    </div>
 	</script>
 
 
