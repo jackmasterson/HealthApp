@@ -94,6 +94,33 @@
 		deleteIt: function() {
 			console.log('gone!');
 			this.$el.remove();
+
+			var calSpan = document.getElementsByClassName('cal-count-span')[0];
+		//	console.log(calSpan.innerText);
+		//	
+		//	console.log(calsArr);
+			var parse = parseInt(calSpan.innerText);
+			//console.log(parse);
+			var index = calsArr.indexOf(parse);
+			console.log(index);
+			//needs work/////////////
+			if(index => -1){
+				console.log(parse);
+				//console.log('yay');
+				calsArr.splice(index, 1);
+				console.log(calsArr);
+				var sum = calsArr.reduce(add, 0);
+				
+				function add(a, b){
+					return a + b;
+				};
+				console.log(sum);
+				calSpan.innerText = sum;
+
+			//	this.countIt();
+				//this.countIt();
+			//	this.countIt();
+			}
 		},
 
 		countIt: function() {
