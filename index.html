@@ -31,14 +31,14 @@
 
 	</script>
 	<script class="saved-temp" type="text/template">
-		<ul class="saved-ul">
-			<li class="saved-li"><%= Item %></li>
-			<li class="saved-li"><%= Brand %></li>
-			<li class="saved-li"><%= Calories %></li>
-			<li class="saved-li">
+	
+			<td class="saved-li"><%= Item %></td>
+			<td class="saved-li"><%= Brand %></td>
+			<td class="saved-li"><%= Calories %></td>
+			<td class="saved-li">
 				<a class="delete"> [delete] </a>
-			</li>
-		</ul>
+			</td>
+	
 	</script>
 
 
@@ -64,20 +64,16 @@
 		</div>
 	</div>
 		<h1 class="eaten-head">Today, I've Eaten:</h1>
-		<div class="meals-eaten">
-			<div class="meal-save breakfast-save">
-				<ul class="float bmeal">Breakfast</ul>
-				<ul class="float bcal">Calories</ul>
-			</div>			
-			<div class="meal-save lunch-save">
-				<ul class="float lmeal">Lunch</ul>
-				<ul class="float lcal">Calories</ul>
-			</div>			
-			<div class="meal-save dinner-save">
-				<ul class="float dmeal">Dinner</ul>
-				<ul class="float dcal">Calories</ul>
-			</div>
-		</div>
+		<table class="meals-eaten">
+			<tbody class="meals-eaten-table">
+				<tr class="saved-div">
+					<th>Food</th>
+					<th>Brand</th>
+					<th>Calories</th>
+					<th>Be Gone!</th>
+				</tr>
+			</tbody>
+		</table>
 
 		<div class="total-cal">
 			<h2 class="calorie-count">Calories: Add and adjust on update</h2>

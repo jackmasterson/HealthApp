@@ -70,6 +70,7 @@
 
 .meals-eaten {
 	display: inline;
+	display: none;
 	width: 100vw;
 }
 
@@ -91,18 +92,14 @@
 	border: 1px solid #ccc;
 }
 
-.saved-li {
-	display: inline-block;
-}
+
 
 .delete {
 	font-style: bold;
 	color: red;
 }
 
-table {
-	font-size: 10px;
-}
+
 
 .float {
 	width: 50%;

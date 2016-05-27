@@ -13,7 +13,7 @@
 
 	var savedFoodItem = Backbone.Model.extend({
 		defaults: {
-			title: "no food selected"
+			Item: "no food selected yet!"
 		}
 	});
 
@@ -31,7 +31,7 @@
 	//		"click button.lunch": "addLunch",
 	//		"click button.dinner": "addDin"
 		},
-	//	savedInfo: [],
+
 		template: _.template( $( '.food-template' ).html() ),
 
 		render: function() {
@@ -41,7 +41,6 @@
 		},
 
 		addTo: function(e){
-			//console.log(e);
 			e.preventDefault();
 			var clicked;
 			var formData = {};
@@ -53,7 +52,6 @@
 		getInfo: function(){
 			var that = this;
 			var formData = {};
-			console.log('most important meal of the day!');
 			var foodToAdd = document.getElementsByClassName('food-temp');
 			this.$('.food-temp li span').each(function(i, er){
 				
@@ -68,7 +66,7 @@
 				var formItem = formData.Item;
 					
 			});
-
+			$('.meals-eaten').slideDown();
 			new savedFoodView( formData );
 
 		}
@@ -78,7 +76,7 @@
 	
 
 	var savedMealView = Backbone.View.extend({
-		tagName: 'div',
+		tagName: 'tr',
 		className: 'saved-div',
 		template: _.template( $('.saved-temp').html() ),
 		events: {
@@ -86,10 +84,7 @@
 		},
 
 		render: function(){
-			//console.log(eatenMeals);
 			var list = document.getElementsByClassName('saved-div');
-			console.log(this);
-			console.log(this.$el);
 			this.$el.html( this.template( this.model.attributes ) );
 
 			return this;
@@ -102,20 +97,14 @@
 	})
 
 	var savedFoodView = Backbone.View.extend({
-		el: '.meals-eaten',
-		//bfast: '.breakfast-save',
-		//lmeal: '.lunch-save',
-		//dmeal: '.dinner-save',
+		
+		el: '.meals-eaten-table',
 
 		initialize: function( eatenMeals ){
-			//console.log(eatenMeals);
-			//var eatString = JSON.stringify(eatenMeals);
-			//console.log(eatString);
-
 
 			this.collection = new savedFoodList( eatenMeals );
 			this.render();
-			//this.collection = new 
+
 		},
 
 		render: function() {
@@ -200,17 +189,15 @@ $(function() {
 			var calMin = document.getElementsByClassName("minBar");
 			var calMax = document.getElementsByClassName("maxBar");
 			
-
-	     //   $(".search-fill").slideDown();
 	        $(".searchButton").click(function(){
 
 		        that.searched = $(search[0]).val();
-		        console.log(that.searched);
-		        that.calMin = $(calMin[0]).val();
+		       that.calMin = $(calMin[0]).val();
 		        that.calMax = $(calMax[0]).val();
 		        that.nutrInit(); 
 		     //   $('.search-fill').slideDown();
 		    });
+
 		},	
 
 		nutrInit: function() {
