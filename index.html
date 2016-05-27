@@ -10,25 +10,30 @@
 
 	<script class="food-template" type="text/template">
 
-		    <ul>
-		        <li><span class="test temp-head">Item</span>: <span class="test temp-item"><%= item %></span></li>
-		        <li><span class="temp-head">Brand</span>: <span class="temp-item"><%= brand %></span></li>
-		        <li><span class="temp-head">Calories</span>: <span class="temp-item"><%= cal %></span></li>
+		    <ul class="food-temp">
+		        <li class="item"><span class="temp-head">Item</span>: <span class="temp-item"><%= item %></span></li>
+		        <li class="brand"><span class="temp-head">Brand</span>: <span class="temp-item"><%= brand %></span></li>
+		        <li class="cal"><span class="temp-head">Calories</span>: <span class="temp-item"><%= cal %></span></li>
 		    </ul>
 			
 		    <button class="add">Add</button>
 		    <ul class="meal">
 		    	<li class="meal-li">
-		    		<button class="bfast">Breakfast</button>
+		    		<button class="info bfast">Breakfast</button>
 		    	</li>
 		    	<li class="meal-li">
-		    		<button class="lunch">Lunch</button>
+		    		<button class="info lunch">Lunch</button>
 		    	</li>
 		    	<li class="meal-li">
-		    		<button class="dinner">Dinner</button>
+		    		<button class="info dinner">Dinner</button>
 		    	</li>
 		    </ul>
 
+	</script>
+	<script class="saved-temp" type="text/template">
+		<ul class="saved-ul">
+			HI!
+		</ul>
 	</script>
 
 
@@ -49,15 +54,8 @@
 		<button class="searchButton">Click to Search</button>
 	</ul>
 	<div class="greater-search">
-		<div class="meal-div">		
-			<ul class="meals">
-				<li class="eat breakfast"></li>
-				<li class="eat lunch" onClick="toggle.lunch()">Lunch</li>
-				<li class="eat dinner" onClick="toggle.dinner()">Dinner</li>
-			</ul>
-		</div>
 		<div class="search-fill">
-			<button onClick="toggle.hide()" class="hide">Click to Hide</button>
+			<button class="hide">Click to Hide</button>
 		</div>
 	</div>
 		<h1 class="eaten-head">Today, I've Eaten:</h1>

@@ -11,14 +11,25 @@
 		model: foodItem
 	});
 
+	var savedFoodItem = Backbone.Model.extend({
+		defaults: {
+			title: "no food selected"
+		}
+	});
+
+	var savedFoodList = Backbone.Collection.extend({
+		model: savedFoodItem
+	});
+
 	var foodView = Backbone.View.extend({
 		tagName: 'div',
 		className: 'food-div',		
 		events: {
 			"click button.add": "addTo",
-			"click button.bfast": "addFast",
-			"click button.lunch": "addLunch",
-			"click button.dinner": "addDin"
+			"click button.info": "getInfo",
+	//		"click button.bfast": "addFast",
+	//		"click button.lunch": "addLunch",
+	//		"click button.dinner": "addDin"
 		},
 		template: _.template( $( '.food-template' ).html() ),
 
@@ -33,31 +44,67 @@
 			e.preventDefault();
 			var clicked;
 			var formData = {};
-			//var formHead = [];
-			//var formItem = [];
-			console.log(this.el);
-			console.log(this.el.innerText);
-			//console.log(el);
-		/*	if( this.el.innerText !='') {
-				
-				formData[this.el.innerText] = this.el.innerText;
-
-			}*/
 
 			this.$('.meal').slideDown();
 
 		},
 
-		addFast: function(){
+		getInfo: function(){
+			//var formData = [];
 			console.log('most important meal of the day!');
+			//console.log(this.el.innerText);
+			var foodToAdd = document.getElementsByClassName('food-temp');
+		//	console.log(this.el);
+		//	console.log(this.$('.food-temp')[0]);
+			this.$('.food-temp li').each(function(i, er){
+			//	console.log(er);
+				console.log(er.innerText);
+				//formData.push(er.innerText)
+
+				new savedFoodView( er.innerText );
+				
+			});
+		}
+	});
+
+	var savedMealView = Backbone.View.extend({
+		tagName: 'div',
+		className: 'saved-div',
+		template: _.template( $('.saved-temp').html() ),
+
+		render: function(){
+			console.log(this);
+			console.log('hey');
+			this.$el.html( this.template( this.model.attributes ) );
+
+			return this;
+		}
+	})
+
+	var savedFoodView = Backbone.View.extend({
+		el: '.meals-eaten',
+
+		initialize: function( eatenMeals ){
+			console.log(eatenMeals);
+
+			this.collection = new savedFoodList( eatenMeals );
+			this.render();
+			//this.collection = new 
 		},
 
-		addLunch: function(){
-			console.log('lunch is fine');
+		render: function() {
+			this.collection.each(function(items){
+	
+				this.renderSaved(items);
+			}, this);
 		},
 
-		addDin: function(){
-			console.log('dinnah');
+		renderSaved: function( items ) {
+			var savedView = new savedMealView({
+				model: items
+			});
+
+			this.$el.append(savedView.render().el);
 		}
 	});
 
@@ -67,7 +114,7 @@
 		el: '.search-fill',
 
 		initialize: function( initialFoods ) {
-
+		//	console.log(initialFoods);
 
 			this.collection = new foodList( initialFoods );
 			this.render();
