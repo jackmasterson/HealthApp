@@ -76,6 +76,7 @@
 .breakfast-save {
 	margin-right: 0;
 }
+
 .meal-save {
 	display: inline;
 	list-style-type: none;
@@ -92,6 +93,11 @@
 
 .saved-li {
 	display: inline-block;
+}
+
+.delete {
+	font-style: bold;
+	color: red;
 }
 
 table {
