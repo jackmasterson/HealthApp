@@ -107,6 +107,10 @@ body {
 	height: 80vh;
 }
 
+.tr-head {
+	text-align: center;
+}
+
 .search-fill {
 	overflow: scroll;
 	background-color: #ccc;

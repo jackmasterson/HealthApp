@@ -61,7 +61,7 @@
 						   dinnerData: {}
 						  };
 			//console.log(that.$('.temp-item'));
-			var classed = that.$('.temp-item');/*
+			var classed = that.$('.temp-item');
 			var foodToAdd = document.getElementsByClassName('food-temp');
 			this.$('.food-temp li span').each(function(i, er){
 				
@@ -74,12 +74,12 @@
 				}
 				console.log(formData);
 		
-			});*/
+			});
 			var hasClassFast = classed.hasClass('fast-it');
 			var hasClassLunch = classed.hasClass('lunch-it');
 			var hasClassDinner = classed.hasClass('dinner-it');
 
-			if(hasClassFast){
+			/*if(hasClassFast){
 				console.log(classed);
 				for(var r=0; r<3; r++){
 					
@@ -112,12 +112,14 @@
 				}
 				console.log(allForm.dinnerData);
 			//	console.log(classed);
-			}
-			console.log(allForm);
+			}*/
+			//console.log(allForm);
 			
 			//console.log()
 			$('.eat-record').slideDown();
-			new savedFoodView( allForm );
+			//new savedFoodView( allForm );
+
+			new savedFoodView( formData );
 
 		},
 
@@ -211,7 +213,7 @@
 				
 
 			});
-			
+
 			var calSpan = document.getElementsByClassName('cal-count-span')[0];
 			console.log(calSpan);
 			calSpan.innerText = sum;
