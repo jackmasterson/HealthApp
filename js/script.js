@@ -20,7 +20,7 @@
 	var savedFoodList = Backbone.Collection.extend({
 		model: savedFoodItem
 	});
-var savedInfo = [];
+
 	var foodView = Backbone.View.extend({
 		tagName: 'div',
 		className: 'food-div',		
@@ -31,6 +31,7 @@ var savedInfo = [];
 	//		"click button.lunch": "addLunch",
 	//		"click button.dinner": "addDin"
 		},
+	//	savedInfo: [],
 		template: _.template( $( '.food-template' ).html() ),
 
 		render: function() {
@@ -50,21 +51,40 @@ var savedInfo = [];
 		},
 
 		getInfo: function(){
-			//var formData = [];
+			var that = this;
+			var formData = {};
 			console.log('most important meal of the day!');
 			//console.log(this.el.innerText);
 			var foodToAdd = document.getElementsByClassName('food-temp');
 		//	console.log(this.el);
 		//	console.log(this.$('.food-temp')[0]);
-			this.$('.food-temp li').each(function(i, er){
+			this.$('.food-temp li span').each(function(i, er){
 			//	console.log(er);
-		//		console.log(er.innerText);
-				//formData.push(er.innerText)
-				mealSave = er.innerText
-				savedInfo.push(mealSave);
-				new savedFoodView( savedInfo );
+			//	console.log(er);
+				var inf = document.getElementsByClassName('temp-item');
+				//console.log(that.$('.temp-item'));
+				
+				//console.log(len);
+
+			//	console.log(this);
+			//	console.log(er.innerHTML);
+				for(var r=0; r<3; r++){
+					
+					var tempItemInf = that.$('.temp-item')[r].innerText;
+					var tempHeadInf = that.$('.temp-head')[r].innerText;
+					formData[tempHeadInf] = tempItemInf;
+
+				}
+				console.log(formData);
+				var formItem = formData.Item;
+				console.log(formItem);
+				//mealSave = formData;
+			//	savedInfo.push(mealSave);
+				//savedInfo.push(mealSave);
+				
 				
 			});
+			new savedFoodView( formData );
 		}
 	});
 
@@ -76,12 +96,10 @@ var savedInfo = [];
 		template: _.template( $('.saved-temp').html() ),
 
 		render: function(){
-			console.log(this);
+			//console.log(eatenMeals);
 			var list = document.getElementsByClassName('saved-div');
-			console.log(list);
-			console.log(savedInfo);
-			//console.log(er.innerText);
-			console.log('hey');
+			console.log(this);
+			console.log(this.$el);
 			this.$el.html( this.template( this.model.attributes ) );
 
 			return this;
@@ -90,9 +108,15 @@ var savedInfo = [];
 
 	var savedFoodView = Backbone.View.extend({
 		el: '.meals-eaten',
+		//bfast: '.breakfast-save',
+		//lmeal: '.lunch-save',
+		//dmeal: '.dinner-save',
 
 		initialize: function( eatenMeals ){
-			console.log(eatenMeals);
+			//console.log(eatenMeals);
+			//var eatString = JSON.stringify(eatenMeals);
+			//console.log(eatString);
+
 
 			this.collection = new savedFoodList( eatenMeals );
 			this.render();
@@ -100,8 +124,9 @@ var savedInfo = [];
 		},
 
 		render: function() {
+
 			this.collection.each(function(items){
-	
+		
 				this.renderSaved(items);
 			}, this);
 		},
@@ -110,7 +135,7 @@ var savedInfo = [];
 			var savedView = new savedMealView({
 				model: items
 			});
-
+		//	console.log(this.$el[0].innerHTML);
 			this.$el.append(savedView.render().el);
 		}
 	});
@@ -235,7 +260,7 @@ $(function() {
 						"serving": serving + " " + unit,
 						"fat": fat
 					});
-
+				//	console.log(foodInfo);
 					new foodListView( foodInfo );	
 				}	
 			})	
