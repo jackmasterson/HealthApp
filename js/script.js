@@ -200,7 +200,7 @@
 				model: items
 			});
 		//	console.log(this.$el[0].innerHTML);
-			this.$el.append(savedView.render().el);
+			this.$el.prepend(savedView.render().el);
 		}
 	});
 

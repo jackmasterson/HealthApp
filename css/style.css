@@ -15,25 +15,12 @@ th {
 	width: 25%;
 }
 
-.search-ul {
-	list-style-type: none;
-	text-align: center;
-}
-
 .search-li {
 	margin: 1%;
 }
 
-.search-fill {
-	height: 300px;
-	width: 500px;
-	overflow: scroll;
-	background-color: #ccc;
-	border: 1px solid black;
-	text-align: center;
-	margin-left: 27vw;
-	z-index: 4;
-
+.search-ul {
+	width: 10vw;
 }
 
 .food-temp {
@@ -46,6 +33,10 @@ th {
 	margin: 3% 0 3% 0;
 }
 
+.top-row {
+	display: inline;
+}
+
 .meal {
 	display: none;
 	margin-left: 0;
@@ -56,22 +47,6 @@ th {
 	display: inline-block;
 }
 
-.meals {
-	list-style-type: none;
-	display: inline-block;
-
-	margin: 2%;
-	background: #ccc;
-	border: 1px solid #ccd;
-	position: absolute;
-	z-index: 5;
-	left: 30vw;
-	top: 25vh;
-	width: 33vw;
-	font-size: 20px;
-	text-align: center;
-}
-
 .eat {
 	border: 1px solid black;
 	border-radius: 35px;
@@ -80,12 +55,20 @@ th {
 }
 
 .eat-record {
+	height: 40vh;
+	border: 1px solid white;
+	overflow-y: scroll;
+	width: 65vw;
+	position: absolute;
+	bottom: 30vh;
+	right: 8vw;
 
 }
 
 .meals-eaten {
 	display: inline;
-	width: 100vw;
+	width: 80vw;
+
 }
 
 .breakfast-save {
@@ -117,16 +100,37 @@ body {
 
 .greater-search {
 	color: black;
+	margin-top: 5%;
+	margin-left: 2%;
+	width: 20vw;
+	height: 80vh;
+}
+
+.search-fill {
+	overflow: scroll;
+	background-color: #ccc;
+	border: 1px solid black;
+	text-align: center;
+	margin-left: 2%;
+	width: 20vw;
+	height: 80vh;
+
+
 }
 
 .cal-count {
 	position: fixed;
-	margin, padding:;
+	margin: 0;
 	left: 70vw;
+	width: 30vw;
 }
 
-.cal-head {
-	font-size: 20px;
+.cal-head{
+	margin: 10px;
+}
+
+.cal-count-span {
+	font-size: 50px;
 }
 
 .shade {
