@@ -60,8 +60,8 @@
 						   lunchData: {},
 						   dinnerData: {}
 						  };
-			console.log(that.$('.temp-item'));
-			var classed = that.$('.temp-item');
+			//console.log(that.$('.temp-item'));
+			var classed = that.$('.temp-item');/*
 			var foodToAdd = document.getElementsByClassName('food-temp');
 			this.$('.food-temp li span').each(function(i, er){
 				
@@ -72,23 +72,52 @@
 					formData[tempHeadInf] = tempItemInf;
 
 				}
+				console.log(formData);
 		
-			});
+			});*/
 			var hasClassFast = classed.hasClass('fast-it');
 			var hasClassLunch = classed.hasClass('lunch-it');
 			var hasClassDinner = classed.hasClass('dinner-it');
 
 			if(hasClassFast){
 				console.log(classed);
+				for(var r=0; r<3; r++){
+					
+					var tempItemInf = that.$('.temp-item')[r].innerText;
+					var tempHeadInf = that.$('.temp-head')[r].innerText;
+					allForm.breakfastData[tempHeadInf] = tempItemInf;
+
+				}
+				console.log(allForm.breakfastData);
 			}
+			
 			if(hasClassLunch){
-				console.log(classed);
+				for(var r=0; r<3; r++){
+					
+					var tempItemInf = that.$('.temp-item')[r].innerText;
+					var tempHeadInf = that.$('.temp-head')[r].innerText;
+					allForm.lunchData[tempHeadInf] = tempItemInf;
+
+				}
+				console.log(allForm.lunchData);
+			//	console.log(classed);
 			}
 			if(hasClassDinner){
-				console.log(classed);
+				for(var r=0; r<3; r++){
+					
+					var tempItemInf = that.$('.temp-item')[r].innerText;
+					var tempHeadInf = that.$('.temp-head')[r].innerText;
+					allForm.dinnerData[tempHeadInf] = tempItemInf;
+
+				}
+				console.log(allForm.dinnerData);
+			//	console.log(classed);
 			}
+			console.log(allForm);
+			
+			//console.log()
 			$('.eat-record').slideDown();
-			new savedFoodView( formData );
+			new savedFoodView( allForm );
 
 		},
 
@@ -148,26 +177,12 @@
 
 			var calSpan = document.getElementsByClassName('cal-count-span')[0];
 			var calSaved = document.getElementsByClassName('cals saved-li');
-		//	console.log(calSpan.innerText);
-		//	
-		//	console.log(calsArr);
-			
-			//console.log(parse);
-			//var index = calsArr.indexOf(parse);
-			//console.log(index);
-			
-			//var calSpan = document.getElementsByClassName('cal-count-span')[0];
-		//	console.log(calSpan);
-		//	console.log(parse);
-		//	console.log(calsArr);
-			//console.log(calSaved);
+
 			this.$('.cals.saved-li').each(function(i, el){
-			//	console.log(calSaved);
-			//	console.log(el);
-			//	console.log(el.innerText);
+
 				var parse = parseInt(el.innerText);
 				var index = calsArr.indexOf(parse);
-			//	console.log(index);
+	
 				calsArr.splice(index, 1);
 				console.log(calsArr);
 				var sum = calsArr.reduce(add, 0);
@@ -176,30 +191,8 @@
 				};
 				console.log(sum);
 				calSpan.innerText = sum;
-			//	that.countIt();
-			})
-			//console.log(this.$('.cals saved-li'));
-		//	console.log(this.$el[0].innerHTML);
-		//	console.log(this.$el[0].innerText);
-			//var index = calsArr.inexOf()
-			//////------------/////////
-			/*if(index => -1){
-				console.log(parse);
-				//console.log('yay');
-				calsArr.splice(index, 1);
-				console.log(calsArr);
-				var sum = calsArr.reduce(add, 0);
-				
-				function add(a, b){
-					return a + b;
-				};
-				console.log(sum);
-				calSpan.innerText = sum;
 
-			//	this.countIt();
-				//this.countIt();
-			//	this.countIt();
-			}*/
+			})
 		},
 
 		countIt: function() {
@@ -218,7 +211,7 @@
 				
 
 			});
-		//	console.log(sum);
+			
 			var calSpan = document.getElementsByClassName('cal-count-span')[0];
 			console.log(calSpan);
 			calSpan.innerText = sum;
@@ -231,7 +224,7 @@
 		el: '.meals-eaten-table',
 
 		initialize: function( eatenMeals ){
-
+			console.log(eatenMeals);
 			this.collection = new savedFoodList( eatenMeals );
 			this.render();
 
