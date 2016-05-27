@@ -36,7 +36,7 @@
 
 		render: function() {
 			this.$el.html( this.template( this.model.attributes ) );
-
+			(console.log(this.$el));
 			return this;
 		},
 
@@ -103,7 +103,8 @@
 			//console.log(parse);
 			var index = calsArr.indexOf(parse);
 			console.log(index);
-			//needs work/////////////
+
+			//////------------/////////
 			if(index => -1){
 				console.log(parse);
 				//console.log('yay');
@@ -181,7 +182,7 @@
 		el: '.search-fill',
 
 		initialize: function( initialFoods ) {
-		//	console.log(initialFoods);
+			console.log(initialFoods);
 
 			this.collection = new foodList( initialFoods );
 			this.render();
@@ -196,6 +197,7 @@
 		},
 
 		renderFood: function( item ){
+			//console.log(item);
 			var eatView = new foodView({
 				model: item
 			});
@@ -294,8 +296,10 @@ $(function() {
 						"fat": fat
 					});
 				//	console.log(foodInfo);
-					new foodListView( foodInfo );	
+				var unique = _.uniq(foodInfo);
+						
 				}	
+				new foodListView( unique );
 			})	
 		},
 	};
