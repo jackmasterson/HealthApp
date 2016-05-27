@@ -62,6 +62,7 @@ th {
 	position: absolute;
 	bottom: 30vh;
 	right: 8vw;
+	display: none;
 
 }
 
@@ -114,8 +115,7 @@ body {
 	margin-left: 2%;
 	width: 20vw;
 	height: 80vh;
-
-
+	display: none;
 }
 
 .cal-count {

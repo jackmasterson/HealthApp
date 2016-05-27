@@ -26,7 +26,10 @@
 		className: 'food-div',		
 		events: {
 			"click button.add": "addTo",
-			"click button.info": "getInfo",
+			//"click button.info": "getInfo",
+			"click button.bfast": "bfastID",
+			"click button.lunch": "lunchID",
+			"click button.dinner": "dinnerID"
 	//		"click button.bfast": "addFast",
 	//		"click button.lunch": "addLunch",
 	//		"click button.dinner": "addDin"
@@ -52,6 +55,13 @@
 		getInfo: function(){
 			var that = this;
 			var formData = {};
+			var allForm = {
+						   breakfastData: {},
+						   lunchData: {},
+						   dinnerData: {}
+						  };
+			console.log(that.$('.temp-item'));
+			var classed = that.$('.temp-item');
 			var foodToAdd = document.getElementsByClassName('food-temp');
 			this.$('.food-temp li span').each(function(i, er){
 				
@@ -62,13 +72,53 @@
 					formData[tempHeadInf] = tempItemInf;
 
 				}
-				
-				var formItem = formData.Item;
-					
+		
 			});
+			var hasClassFast = classed.hasClass('fast-it');
+			var hasClassLunch = classed.hasClass('lunch-it');
+			var hasClassDinner = classed.hasClass('dinner-it');
+
+			if(hasClassFast){
+				console.log(classed);
+			}
+			if(hasClassLunch){
+				console.log(classed);
+			}
+			if(hasClassDinner){
+				console.log(classed);
+			}
 			$('.eat-record').slideDown();
 			new savedFoodView( formData );
 
+		},
+
+		bfastID: function() {
+			var that = this;
+		//	console.log('add a breakfast ID to this, then whatever' +
+		//		'has that meals ID will get filtered under a heading');
+			//console.log(this.$el[0]);
+			this.bfastData = {};
+			var classed = document.getElementsByClassName('.temp-item');
+			//console.log(that.$('.temp-item'));
+			that.$('.temp-item').addClass('fast-it');
+		//	console.log(that.$('.temp-item'));
+		//	console.log(classed);
+			//this.$el[0].addClass('break-it');
+			//console.log(this.$el[0]);
+			this.getInfo();
+		},
+
+		lunchID: function() {
+			var that = this;
+			that.$('.temp-item').addClass('lunch-it');
+		//	console.log(that.$('.temp-item'));
+			this.getInfo();
+		},
+
+		dinnerID: function() {
+			var that = this;
+			that.$('.temp-item').addClass('dinner-it');
+			this.getInfo();
 		}
 
 	});
