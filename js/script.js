@@ -73,7 +73,7 @@
 
 	});
 
-	
+	var calsArr = [];
 
 	var savedMealView = Backbone.View.extend({
 		tagName: 'tr',
@@ -87,12 +87,36 @@
 			var list = document.getElementsByClassName('saved-div');
 			this.$el.html( this.template( this.model.attributes ) );
 
+			this.countIt();
 			return this;
 		},
 
 		deleteIt: function() {
 			console.log('gone!');
 			this.$el.remove();
+		},
+
+		countIt: function() {
+
+			var sum;
+
+			this.$('.cals').each(function(i, el){
+
+				var parsed = parseInt(el.innerText);
+				calsArr.push(parsed);
+				sum = calsArr.reduce(add, 0);
+
+				function add(a, b) {
+					return a + b;
+				};
+				
+
+			});
+			console.log(sum);
+			var calSpan = document.getElementsByClassName('cal-count-span')[0];
+			console.log(calSpan);
+			calSpan.innerText = sum;
+
 		}
 	})
 
