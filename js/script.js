@@ -54,20 +54,9 @@
 			var that = this;
 			var formData = {};
 			console.log('most important meal of the day!');
-			//console.log(this.el.innerText);
 			var foodToAdd = document.getElementsByClassName('food-temp');
-		//	console.log(this.el);
-		//	console.log(this.$('.food-temp')[0]);
 			this.$('.food-temp li span').each(function(i, er){
-			//	console.log(er);
-			//	console.log(er);
-				var inf = document.getElementsByClassName('temp-item');
-				//console.log(that.$('.temp-item'));
 				
-				//console.log(len);
-
-			//	console.log(this);
-			//	console.log(er.innerHTML);
 				for(var r=0; r<3; r++){
 					
 					var tempItemInf = that.$('.temp-item')[r].innerText;
@@ -75,17 +64,15 @@
 					formData[tempHeadInf] = tempItemInf;
 
 				}
-				console.log(formData);
+				
 				var formItem = formData.Item;
-				console.log(formItem);
-				//mealSave = formData;
-			//	savedInfo.push(mealSave);
-				//savedInfo.push(mealSave);
-				
-				
+					
 			});
+
 			new savedFoodView( formData );
+
 		}
+
 	});
 
 	
@@ -94,6 +81,9 @@
 		tagName: 'div',
 		className: 'saved-div',
 		template: _.template( $('.saved-temp').html() ),
+		events: {
+			"click a.delete": "deleteIt"
+		},
 
 		render: function(){
 			//console.log(eatenMeals);
@@ -103,6 +93,11 @@
 			this.$el.html( this.template( this.model.attributes ) );
 
 			return this;
+		},
+
+		deleteIt: function() {
+			console.log('gone!');
+			this.$el.remove();
 		}
 	})
 
