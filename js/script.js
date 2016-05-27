@@ -20,7 +20,7 @@
 	var savedFoodList = Backbone.Collection.extend({
 		model: savedFoodItem
 	});
-
+var savedInfo = [];
 	var foodView = Backbone.View.extend({
 		tagName: 'div',
 		className: 'food-div',		
@@ -58,14 +58,17 @@
 		//	console.log(this.$('.food-temp')[0]);
 			this.$('.food-temp li').each(function(i, er){
 			//	console.log(er);
-				console.log(er.innerText);
+		//		console.log(er.innerText);
 				//formData.push(er.innerText)
-
-				new savedFoodView( er.innerText );
+				mealSave = er.innerText
+				savedInfo.push(mealSave);
+				new savedFoodView( savedInfo );
 				
 			});
 		}
 	});
+
+	
 
 	var savedMealView = Backbone.View.extend({
 		tagName: 'div',
@@ -74,6 +77,10 @@
 
 		render: function(){
 			console.log(this);
+			var list = document.getElementsByClassName('saved-div');
+			console.log(list);
+			console.log(savedInfo);
+			//console.log(er.innerText);
 			console.log('hey');
 			this.$el.html( this.template( this.model.attributes ) );
 
