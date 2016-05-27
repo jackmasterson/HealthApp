@@ -3,7 +3,17 @@
 	list-style-type: none;
 }
 
+table {
+	text-align: center;
+}
 
+tr {
+	width: 80vw;
+}
+
+th {
+	width: 25%;
+}
 
 .search-ul {
 	list-style-type: none;
@@ -23,6 +33,7 @@
 	text-align: center;
 	margin-left: 27vw;
 	z-index: 4;
+
 }
 
 .food-temp {
@@ -48,7 +59,7 @@
 .meals {
 	list-style-type: none;
 	display: inline-block;
-	display: none;
+
 	margin: 2%;
 	background: #ccc;
 	border: 1px solid #ccd;
@@ -68,9 +79,12 @@
 	padding: 5%;
 }
 
+.eat-record {
+
+}
+
 .meals-eaten {
 	display: inline;
-	display: none;
 	width: 100vw;
 }
 
@@ -81,7 +95,7 @@
 .meal-save {
 	display: inline;
 	list-style-type: none;
-	display: none;
+
 	height: 100px;
 	width: 30vw;
 	font-size: 10px;

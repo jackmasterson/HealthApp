@@ -66,7 +66,7 @@
 				var formItem = formData.Item;
 					
 			});
-			$('.meals-eaten').slideDown();
+			$('.eat-record').slideDown();
 			new savedFoodView( formData );
 
 		}
@@ -195,7 +195,7 @@ $(function() {
 		       that.calMin = $(calMin[0]).val();
 		        that.calMax = $(calMax[0]).val();
 		        that.nutrInit(); 
-		     //   $('.search-fill').slideDown();
+		        $('.search-fill').slideDown();
 		    });
 
 		},	
