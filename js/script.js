@@ -36,7 +36,7 @@
 
 		render: function() {
 			this.$el.html( this.template( this.model.attributes ) );
-			(console.log(this.$el));
+		//	(console.log(this.$el));
 			return this;
 		},
 
@@ -93,19 +93,47 @@
 
 		deleteIt: function() {
 			console.log('gone!');
+			var that = this;
 			this.$el.remove();
 
 			var calSpan = document.getElementsByClassName('cal-count-span')[0];
+			var calSaved = document.getElementsByClassName('cals saved-li');
 		//	console.log(calSpan.innerText);
 		//	
 		//	console.log(calsArr);
-			var parse = parseInt(calSpan.innerText);
+			
 			//console.log(parse);
-			var index = calsArr.indexOf(parse);
-			console.log(index);
-
+			//var index = calsArr.indexOf(parse);
+			//console.log(index);
+			
+			//var calSpan = document.getElementsByClassName('cal-count-span')[0];
+		//	console.log(calSpan);
+		//	console.log(parse);
+		//	console.log(calsArr);
+			//console.log(calSaved);
+			this.$('.cals.saved-li').each(function(i, el){
+			//	console.log(calSaved);
+			//	console.log(el);
+			//	console.log(el.innerText);
+				var parse = parseInt(el.innerText);
+				var index = calsArr.indexOf(parse);
+			//	console.log(index);
+				calsArr.splice(index, 1);
+				console.log(calsArr);
+				var sum = calsArr.reduce(add, 0);
+				function add(a, b){
+					return a+b;
+				};
+				console.log(sum);
+				calSpan.innerText = sum;
+			//	that.countIt();
+			})
+			//console.log(this.$('.cals saved-li'));
+		//	console.log(this.$el[0].innerHTML);
+		//	console.log(this.$el[0].innerText);
+			//var index = calsArr.inexOf()
 			//////------------/////////
-			if(index => -1){
+			/*if(index => -1){
 				console.log(parse);
 				//console.log('yay');
 				calsArr.splice(index, 1);
@@ -121,7 +149,7 @@
 			//	this.countIt();
 				//this.countIt();
 			//	this.countIt();
-			}
+			}*/
 		},
 
 		countIt: function() {
@@ -140,7 +168,7 @@
 				
 
 			});
-			console.log(sum);
+		//	console.log(sum);
 			var calSpan = document.getElementsByClassName('cal-count-span')[0];
 			console.log(calSpan);
 			calSpan.innerText = sum;
@@ -182,7 +210,7 @@
 		el: '.search-fill',
 
 		initialize: function( initialFoods ) {
-			console.log(initialFoods);
+		//	console.log(initialFoods);
 
 			this.collection = new foodList( initialFoods );
 			this.render();
