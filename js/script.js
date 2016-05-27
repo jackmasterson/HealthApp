@@ -274,7 +274,24 @@
 			var eatView = new foodView({
 				model: item
 			});
-			this.$el.append( eatView.render().el );
+			console.log(this.$el[0].childElementCount);
+			console.log(this.$el[0]);
+			console.log(this.$el);
+		//	var child = document.getElementsByClassName('food-div');
+			console.log(this.$('.food-div'));
+
+			var foodDiv = this.$('.food-div')
+			if(this.$('.food-div').length > 0){
+				//console.log(foodDiv);
+				//foodDiv = [];
+				//console.log(foodDiv);
+				
+			//	this.$el.append( eatView.render().el );
+			}
+				this.$el.empty();
+				this.$el.append( eatView.render().el );
+
+			
 		}
 	});
 /*			$('.search-fill div ul li span.temp-head').each(function(i, el){
@@ -318,10 +335,11 @@ $(function() {
 	        $(".searchButton").click(function(){
 
 		        that.searched = $(search[0]).val();
-		       that.calMin = $(calMin[0]).val();
+		       	that.calMin = $(calMin[0]).val();
 		        that.calMax = $(calMax[0]).val();
 		        that.nutrInit(); 
 		        $('.search-fill').slideDown();
+
 		    });
 
 		},	
@@ -351,7 +369,7 @@ $(function() {
 				dataType: 'json',
 			})
 			.done(function(response){
-
+				foodInfo = [];
 				for(var i=0; i<response.hits.length; i++){
 					var fields = response.hits[i].fields;
 					var item = fields.item_name;
@@ -360,7 +378,7 @@ $(function() {
 					var serving = fields.nf_serving_size_qty;
 					var unit = fields.nf_serving_size_unit;
 					var fat = fields.nf_total_fat;
-	
+					
 					foodInfo.push({
 						"item": item,
 						"brand": brand,
@@ -368,10 +386,12 @@ $(function() {
 						"serving": serving + " " + unit,
 						"fat": fat
 					});
-				//	console.log(foodInfo);
-				var unique = _.uniq(foodInfo);
+					console.log(foodInfo);
+
+				
 						
 				}	
+				var unique = _.uniq(foodInfo);
 				new foodListView( unique );
 			})	
 		},

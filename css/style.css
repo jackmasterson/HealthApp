@@ -15,6 +15,10 @@ th {
 	width: 25%;
 }
 
+a, button {
+	cursor: pointer;
+}
+
 .search-li {
 	margin: 1%;
 }
