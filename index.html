@@ -33,6 +33,7 @@
 
 	</script>
 	<script class="saved-temp" type="text/template">
+			<td class="saved-li meal-name"><%= id %></td>
 			<td class="saved-li"><%= Item %></td>
 			<td class="saved-li"><%= Brand %></td>
 			<td class="cals saved-li"><%= Calories %></td>
@@ -64,22 +65,21 @@
 				<button class="searchButton">Click to Search</button>
 			</ul>
 		<div class="search-fill">
-			<button class="hide">Click to Hide</button>
-
 		</div>
 	</div>
 	<div class="top-row eat-record">
 		<h1 class="eaten-head">Today, I've Eaten:</h1>
 		<h4>(scroll down to see all)</h4>
 		<table class="meals-eaten">
-			<tbody>
+			<thead>
 				<tr class="saved-div">
+					<th>Meal</th>
 					<th>Food</th>
 					<th>Brand</th>
 					<th>Calories</th>
 					<th>jklawlplzduleet</th>
 				</tr>
-			</tbody>
+			</thead>
 			<tbody class="meals-eaten-table"></tbody>
 		</table>
 

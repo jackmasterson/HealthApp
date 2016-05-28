@@ -1,4 +1,5 @@
 
+
 	var foodItem = Backbone.Model.extend({
 		defaults: {
 			title: 'no title',
@@ -54,14 +55,17 @@
 
 		getInfo: function(){
 			var that = this;
-			var formData = {};
+			var classed = that.$('.temp-item');
+			var classy = that.$('.temp-item').attr('id')
+
+			var formData = {id: classy};
 			var allForm = {
 						   breakfastData: {},
 						   lunchData: {},
 						   dinnerData: {}
 						  };
 			//console.log(that.$('.temp-item'));
-			var classed = that.$('.temp-item');
+			
 			var foodToAdd = document.getElementsByClassName('food-temp');
 			this.$('.food-temp li span').each(function(i, er){
 				
@@ -72,52 +76,16 @@
 					formData[tempHeadInf] = tempItemInf;
 
 				}
-				console.log(formData);
+			//	console.log(formData);
+			
+
 		
 			});
 			var hasClassFast = classed.hasClass('fast-it');
 			var hasClassLunch = classed.hasClass('lunch-it');
 			var hasClassDinner = classed.hasClass('dinner-it');
 
-			/*if(hasClassFast){
-				console.log(classed);
-				for(var r=0; r<3; r++){
-					
-					var tempItemInf = that.$('.temp-item')[r].innerText;
-					var tempHeadInf = that.$('.temp-head')[r].innerText;
-					allForm.breakfastData[tempHeadInf] = tempItemInf;
-
-				}
-				console.log(allForm.breakfastData);
-			}
-			
-			if(hasClassLunch){
-				for(var r=0; r<3; r++){
-					
-					var tempItemInf = that.$('.temp-item')[r].innerText;
-					var tempHeadInf = that.$('.temp-head')[r].innerText;
-					allForm.lunchData[tempHeadInf] = tempItemInf;
-
-				}
-				console.log(allForm.lunchData);
-			//	console.log(classed);
-			}
-			if(hasClassDinner){
-				for(var r=0; r<3; r++){
-					
-					var tempItemInf = that.$('.temp-item')[r].innerText;
-					var tempHeadInf = that.$('.temp-head')[r].innerText;
-					allForm.dinnerData[tempHeadInf] = tempItemInf;
-
-				}
-				console.log(allForm.dinnerData);
-			//	console.log(classed);
-			}*/
-			//console.log(allForm);
-			
-			//console.log()
 			$('.eat-record').slideDown();
-			//new savedFoodView( allForm );
 
 			new savedFoodView( formData );
 
@@ -125,30 +93,23 @@
 
 		bfastID: function() {
 			var that = this;
-		//	console.log('add a breakfast ID to this, then whatever' +
-		//		'has that meals ID will get filtered under a heading');
-			//console.log(this.$el[0]);
-			this.bfastData = {};
-			var classed = document.getElementsByClassName('.temp-item');
-			//console.log(that.$('.temp-item'));
-			that.$('.temp-item').addClass('fast-it');
-		//	console.log(that.$('.temp-item'));
-		//	console.log(classed);
-			//this.$el[0].addClass('break-it');
-			//console.log(this.$el[0]);
+			//this.bfastData = {};
+			//var classed = document.getElementsByClassName('.temp-item');
+
+			that.$('.temp-item').attr('id', 'Breakfast');
 			this.getInfo();
 		},
 
 		lunchID: function() {
 			var that = this;
-			that.$('.temp-item').addClass('lunch-it');
+			that.$('.temp-item').attr('id', 'Lunch');
 		//	console.log(that.$('.temp-item'));
 			this.getInfo();
 		},
 
 		dinnerID: function() {
 			var that = this;
-			that.$('.temp-item').addClass('dinner-it');
+			that.$('.temp-item').attr('id', 'Dinner');
 			this.getInfo();
 		}
 
@@ -165,15 +126,21 @@
 		},
 
 		render: function(){
+			var that = this;
 			var list = document.getElementsByClassName('saved-div');
-			this.$el.html( this.template( this.model.attributes ) );
+		//	console.log(that.$el);
+		//	console.log($('.food-div'));
 
+			that.$el.html( this.template( this.model.attributes ) );
+
+
+			
 			this.countIt();
 			return this;
 		},
 
 		deleteIt: function() {
-			console.log('gone!');
+
 			var that = this;
 			this.$el.remove();
 
@@ -186,7 +153,7 @@
 				var index = calsArr.indexOf(parse);
 	
 				calsArr.splice(index, 1);
-				console.log(calsArr);
+			//	console.log(calsArr);
 				var sum = calsArr.reduce(add, 0);
 				function add(a, b){
 					return a+b;
@@ -215,7 +182,7 @@
 			});
 
 			var calSpan = document.getElementsByClassName('cal-count-span')[0];
-			console.log(calSpan);
+		//	console.log(calSpan);
 			calSpan.innerText = sum;
 
 		}
@@ -224,12 +191,13 @@
 	var savedFoodView = Backbone.View.extend({
 		
 		el: '.meals-eaten-table',
+		//fast: '.fast-it-eaten-table',
 
 		initialize: function( eatenMeals ){
 			console.log(eatenMeals);
+			console.log(eatenMeals.id);
 			this.collection = new savedFoodList( eatenMeals );
 			this.render();
-
 		},
 
 		render: function() {
@@ -244,8 +212,23 @@
 			var savedView = new savedMealView({
 				model: items
 			});
-		//	console.log(this.$el[0].innerHTML);
-			this.$el.prepend(savedView.render().el);
+			console.log(this.$el[0]);
+		/*	$('.temp-item').each(function(i, el){
+			//	console.log(el);
+
+				if($('.temp-item').hasClass('fast-it')){
+		//			console.log(el.innerText, 'fast!');
+				//	that.$el.html( that.template( that.model.attributes ) );
+					//$('.fast-it-eaten-table').prepend(savedView.render().el);
+				}
+
+			})*/
+	//		var hasClassFast = classed.hasClass('fast-it');
+	//		var hasClassLunch = classed.hasClass('lunch-it');
+	//		var hasClassDinner = classed.hasClass('dinner-it');
+		
+		$('.meals-eaten-table').prepend(savedView.render().el);
+		//$('.dinner-it-eaten-table').prepend(savedView.render().el);
 		}
 	});
 
@@ -256,7 +239,7 @@
 
 		initialize: function( initialFoods ) {
 		//	console.log(initialFoods);
-		this.$el.empty();
+			this.$el.empty();
 			this.collection = new foodList( initialFoods );
 			this.render();
 		},
@@ -275,19 +258,11 @@
 			var eatView = new foodView({
 				model: item
 			});
-			console.log(this.$el[0].childElementCount);
-			console.log(this.$el[0]);
-			console.log(this.$el);
-		//	var child = document.getElementsByClassName('food-div');
-			console.log(this.$('.food-div'));
+
 
 			var foodDiv = this.$('.food-div')
 			if(this.$('.food-div').length > 0){
-				//console.log(foodDiv);
-				//foodDiv = [];
-				//console.log(foodDiv);
-				
-			//	this.$el.append( eatView.render().el );
+
 			}
 
 				this.$el.append( eatView.render().el );
@@ -387,11 +362,9 @@ $(function() {
 						"serving": serving + " " + unit,
 						"fat": fat
 					});
-					console.log(foodInfo);
 
-				
-						
 				}	
+
 				var unique = _.uniq(foodInfo);
 				new foodListView( unique );
 			})	
