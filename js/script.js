@@ -256,7 +256,7 @@
 
 		initialize: function( initialFoods ) {
 		//	console.log(initialFoods);
-
+		this.$el.empty();
 			this.collection = new foodList( initialFoods );
 			this.render();
 		},
@@ -271,6 +271,7 @@
 
 		renderFood: function( item ){
 			//console.log(item);
+			//
 			var eatView = new foodView({
 				model: item
 			});
@@ -288,7 +289,7 @@
 				
 			//	this.$el.append( eatView.render().el );
 			}
-				this.$el.empty();
+
 				this.$el.append( eatView.render().el );
 
 			
