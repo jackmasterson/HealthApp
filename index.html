@@ -7,83 +7,73 @@
 </head>
 <body>
 	<script class="food-template" type="text/template">
-		    <ul class="food-temp">
-		        <li class="item"><span class="temp-head">Item</span>: <span class="temp-item"><%= item %></span></li>
-		        <li class="brand"><span class="temp-head">Brand</span>: <span class="temp-item"><%= brand %></span></li>
-		        <li class="cal"><span class="temp-head">Calories</span>: <span class="temp-item"><%= cal %></span></li>
-		    </ul>
-		    <button class="add">Add</button>
-		    <ul class="meal">
-		    	<li class="meal-li">
-		    		<button class="info bfast">Breakfast</button>
-		    	</li>
-		    	<li class="meal-li">
-		    		<button class="info lunch">Lunch</button>
-		    	</li>
-		    	<li class="meal-li">
-		    		<button class="info dinner">Dinner</button>
-		    	</li>
-		    </ul>
+	    <ul class="food-temp">
+	        <li class="item"><span class="temp-head">Item</span>: <span class="temp-item"><%= item %></span></li>
+	        <li class="brand"><span class="temp-head">Brand</span>: <span class="temp-item"><%= brand %></span></li>
+	        <li class="cal"><span class="temp-head">Calories</span>: <span class="temp-item"><%= cal %></span></li>
+	    </ul>
+	    <button class="add">Add</button>
+	    <ul class="meal">
+	    	<li class="meal-li">
+	    		<button class="info bfast">Breakfast</button>
+	    	</li>
+	    	<li class="meal-li">
+	    		<button class="info lunch">Lunch</button>
+	    	</li>
+	    	<li class="meal-li">
+	    		<button class="info dinner">Dinner</button>
+	    	</li>
+	    </ul>
 	</script>
 	<script class="saved-temp" type="text/template">
-			<td class="saved-li meal-name"><%= id %></td>
-			<td class="saved-li"><%= Item %></td>
-			<td class="saved-li"><%= Brand %></td>
-			<td class="cals saved-li"><%= Calories %></td>
-			<td class="saved-li">
-				<a class="delete"> [delete] </a>
-			</td>
+		<td class="saved-li meal-name"><%= id %></td>
+		<td class="saved-li"><%= Item %></td>
+		<td class="saved-li"><%= Brand %></td>
+		<td class="cals saved-li"><%= Calories %></td>
+		<td class="saved-li">
+			<a class="delete"> [delete] </a>
+		</td>
 	</script>
+
 	<div class="background">
-	<div class="shade">
-
-
-	
-
-
-
-
-
-	<div class="top-row cal-count">
-		<h2 class="cal-head">Total Calories: </h2>
-		<span class="cal-count-span"></span>
-	</div>
-	<div class="top-row greater-search">
-					<ul class="search-ul">
-				<li class="search-li">
-					<input class="searchBar" type="search" placeholder="What'd Ya Eat Today"></input>	
-				</li>
-				<li class="search-li">
-					<input class="minBar" type="search" placeholder="Calorie Minimum"></input>
-				</li>
-				<li class="search-li">
-					<input class="maxBar" type="search" placeholder="Calorie Maximum"></input>
-				</li>
-				<button class="searchButton">Click to Search</button>
-			</ul>
-		<div class="search-fill">
+		<div class="shade">
+			<div class="top-row cal-count">
+				<h2 class="cal-head">Total Calories: </h2>
+				<span class="cal-count-span"></span>
+			</div>
+			<div class="top-row greater-search">
+							<ul class="search-ul">
+						<li class="search-li">
+							<input class="searchBar" type="search" placeholder="What'd Ya Eat Today"></input>	
+						</li>
+						<li class="search-li">
+							<input class="minBar" type="search" placeholder="Calorie Minimum"></input>
+						</li>
+						<li class="search-li">
+							<input class="maxBar" type="search" placeholder="Calorie Maximum"></input>
+						</li>
+						<button class="searchButton">Click to Search</button>
+					</ul>
+				<div class="search-fill"></div>
+			</div>
+			<div class="top-row eat-record">
+				<h1 class="eaten-head">Today, I've Eaten:</h1>
+				<h4>(scroll down to see all)</h4>
+				<table class="meals-eaten">
+					<thead>
+						<tr class="saved-div">
+							<th>Meal</th>
+							<th>Food</th>
+							<th>Brand</th>
+							<th>Calories</th>
+							<th>jklawlplzduleet</th>
+						</tr>
+					</thead>
+					<tbody class="meals-eaten-table"></tbody>
+				</table>
+			</div>
 		</div>
 	</div>
-	<div class="top-row eat-record">
-		<h1 class="eaten-head">Today, I've Eaten:</h1>
-		<h4>(scroll down to see all)</h4>
-		<table class="meals-eaten">
-			<thead>
-				<tr class="saved-div">
-					<th>Meal</th>
-					<th>Food</th>
-					<th>Brand</th>
-					<th>Calories</th>
-					<th>jklawlplzduleet</th>
-				</tr>
-			</thead>
-			<tbody class="meals-eaten-table"></tbody>
-		</table>
-
-	</div>
-
-</div>
-</div>
 
 	<script src="js/lib/jquery-1.12.4.min.js"></script>
 	<script src="js/lib/underscore-min.js"></script>

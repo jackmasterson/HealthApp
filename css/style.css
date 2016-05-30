@@ -3,6 +3,10 @@
 	list-style-type: none;
 }
 
+body {
+	background-color: rgba(0,0,0,0.8);
+}
+
 table {
 	text-align: center;
 }
@@ -38,9 +42,10 @@ a, button {
 	margin-left: 20px;
 }
 
-.hide {
-
-	margin: 3% 0 3% 0;
+.shade {
+	background-color: rgba(0,0,0,0.5);
+	height: 100vh;
+	width: 100vw;
 }
 
 .top-row {
@@ -57,13 +62,6 @@ a, button {
 	display: inline-block;
 }
 
-.eat {
-	border: 1px solid black;
-	border-radius: 35px;
-	text-align: center;
-	padding: 5%;
-}
-
 .eat-record {
 	height: 40vh;
 	border: 1px solid white;
@@ -73,34 +71,11 @@ a, button {
 	bottom: 30vh;
 	right: 8vw;
 	display: none;
-
 }
 
 .meals-eaten {
 	display: inline;
 	width: 80vw;
-
-}
-
-.breakfast-save {
-	margin-right: 0;
-}
-
-.meal-save {
-	display: inline;
-	list-style-type: none;
-
-	height: 100px;
-	width: 30vw;
-	font-size: 10px;
-	text-align: center;
-	font-style: bold;
-	margin-right: 0;
-	float: left;
-	border: 1px solid #ccc;
-}
-body {
-	background-color: rgba(0,0,0,0.8);
 }
 
 .background {
@@ -117,10 +92,6 @@ body {
 	height: 80vh;
 }
 
-.tr-head {
-	text-align: center;
-}
-
 .search-fill {
 	overflow: scroll;
 	background-color: #ccc;
@@ -128,7 +99,7 @@ body {
 	text-align: center;
 	margin-left: 2%;
 	width: 20vw;
-	height: 80vh;
+	height: 70vh;
 	display: none;
 }
 
@@ -147,36 +118,7 @@ body {
 	font-size: 50px;
 }
 
-.shade {
-	background-color: rgba(0,0,0,0.5);
-	height: 100vh;
-	width: 100vw;
-}
-
-
 .delete {
 	font-style: bold;
 	color: red;
-}
-
-
-
-.float {
-	width: 50%;
-	float: left;
-	padding: 0;
-	margin: 0;
-
-}
-
-.food-head {
-	font-size: 15px;
-}
-
-.food-sub-head {
-	font-size: 10px;
-}
-
-.total-cal {
-	margin-top: 20%;
 }
