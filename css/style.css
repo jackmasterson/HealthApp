@@ -34,6 +34,10 @@ a, button {
 	padding-left: 0;
 }
 
+.searchButton {
+	margin-left: 20px;
+}
+
 .hide {
 
 	margin: 3% 0 3% 0;
