@@ -22,7 +22,6 @@ $(function() {
                 $('.search-fill').slideDown();
 
             });
-
         },
 
         //initializes the API call to Nutritionix API
@@ -48,39 +47,39 @@ $(function() {
         nutrRender: function() {
 
             $.ajax({
-                    url: this.nutrUrl,
-                    dataType: 'json',
-                })
-                .done(function(response) {
-                    var foodInfo = [];
-                    for (var i = 0; i < response.hits.length; i++) {
-                        var fields = response.hits[i].fields;
-                        var item = fields.item_name;
-                        var brand = fields.brand_name;
-                        var cal = fields.nf_calories;
-                        var serving = fields.nf_serving_size_qty;
-                        var unit = fields.nf_serving_size_unit;
-                        var fat = fields.nf_total_fat;
+                url: this.nutrUrl,
+                dataType: 'json',
+            })
+            .done(function(response) {
+                var foodInfo = [];
+                for (var i = 0; i < response.hits.length; i++) {
+                    var fields = response.hits[i].fields;
+                    var item = fields.item_name;
+                    var brand = fields.brand_name;
+                    var cal = fields.nf_calories;
+                    var serving = fields.nf_serving_size_qty;
+                    var unit = fields.nf_serving_size_unit;
+                    var fat = fields.nf_total_fat;
 
-                        //sends the information from the for loop
-                        //into the foodInfo array with headings used
-                        //by the template established in index.html
-                        foodInfo.push({
-                            "item": item,
-                            "brand": brand,
-                            "cal": cal,
-                            "serving": serving + " " + unit,
-                            "fat": fat
-                        });
+                    //sends the information from the for loop
+                    //into the foodInfo array with headings used
+                    //by the template established in index.html
+                    foodInfo.push({
+                        "item": item,
+                        "brand": brand,
+                        "cal": cal,
+                        "serving": serving + " " + unit,
+                        "fat": fat
+                    });
 
-                    }
+                }
 
-                    //using Underscore, makes sure the array foodInfo
-                    //doesn't contain duplicates, then initiates
-                    //a foodListView from those unique strings
-                    var unique = _.uniq(foodInfo);
-                    new foodListView(unique);
-                });
+                //using Underscore, makes sure the array foodInfo
+                //doesn't contain duplicates, then initiates
+                //a foodListView from those unique strings
+                var unique = _.uniq(foodInfo);
+                new foodListView(unique);
+            });
         },
     };
 
