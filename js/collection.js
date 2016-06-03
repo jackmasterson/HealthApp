@@ -1,3 +1,4 @@
+//collections for the food items and list of foods eaten that day
 var foodList = Backbone.Collection.extend({
     model: foodItem
 });

@@ -1,5 +1,5 @@
 
-
+//function to set the searchbar and API information
 $(function() {
 
     var foodSet = {
@@ -9,6 +9,10 @@ $(function() {
             var calMin = document.getElementsByClassName("minBar");
             var calMax = document.getElementsByClassName("maxBar");
 
+            //when user clicks the search button, this function
+            //grabs the information out of the search,
+            //calorie minimum, and calorie maximum bars;
+            //if left blank, the search will return random foods
             $(".searchButton").click(function() {
 
                 that.searched = $(search[0]).val();
@@ -21,6 +25,7 @@ $(function() {
 
         },
 
+        //initializes the API call to Nutritionix API
         nutrInit: function() {
             var apiID = "20ca6dec";
             var apiKey = "2926b7be1f28ff2f6cb361a23678110c";
@@ -39,6 +44,7 @@ $(function() {
             this.nutrRender();
         },
 
+        //renders said API call
         nutrRender: function() {
 
             $.ajax({
@@ -46,7 +52,7 @@ $(function() {
                     dataType: 'json',
                 })
                 .done(function(response) {
-                    foodInfo = [];
+                    var foodInfo = [];
                     for (var i = 0; i < response.hits.length; i++) {
                         var fields = response.hits[i].fields;
                         var item = fields.item_name;
@@ -56,6 +62,9 @@ $(function() {
                         var unit = fields.nf_serving_size_unit;
                         var fat = fields.nf_total_fat;
 
+                        //sends the information from the for loop
+                        //into the foodInfo array with headings used
+                        //by the template established in index.html
                         foodInfo.push({
                             "item": item,
                             "brand": brand,
@@ -66,6 +75,9 @@ $(function() {
 
                     }
 
+                    //using Underscore, makes sure the array foodInfo
+                    //doesn't contain duplicates, then initiates
+                    //a foodListView from those unique strings
                     var unique = _.uniq(foodInfo);
                     new foodListView(unique);
                 });
