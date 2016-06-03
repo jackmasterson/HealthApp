@@ -22,6 +22,7 @@ $(function() {
                 $('.search-fill').slideDown();
 
             });
+
         },
 
         //initializes the API call to Nutritionix API
