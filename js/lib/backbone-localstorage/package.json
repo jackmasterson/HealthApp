@@ -1,0 +1,81 @@
+{
+  "_args": [
+    [
+      "backbone-localstorage",
+      "/Users/jackmasterson"
+    ]
+  ],
+  "_from": "backbone-localstorage@latest",
+  "_id": "backbone-localstorage@0.3.2",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/backbone-localstorage",
+  "_npmUser": {
+    "email": "rob@moori.nl",
+    "name": "moorinteractive"
+  },
+  "_npmVersion": "1.3.24",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "backbone-localstorage",
+    "raw": "backbone-localstorage",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/backbone-localstorage/-/backbone-localstorage-0.3.2.tgz",
+  "_shasum": "9f46578e20255bf0f641f4d4828c04a989b8140d",
+  "_shrinkwrap": null,
+  "_spec": "backbone-localstorage",
+  "_where": "/Users/jackmasterson",
+  "author": {
+    "email": "rob@moori.nl",
+    "name": "R. Moorman"
+  },
+  "bugs": {
+    "url": "https://github.com/moorinteractive/backbone-localstorage/issues"
+  },
+  "dependencies": {},
+  "description": "Backbone localStorage",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-cli": "~0.1.11",
+    "grunt-contrib-qunit": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.7"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "9f46578e20255bf0f641f4d4828c04a989b8140d",
+    "tarball": "https://registry.npmjs.org/backbone-localstorage/-/backbone-localstorage-0.3.2.tgz"
+  },
+  "homepage": "https://github.com/moorinteractive/backbone-localstorage",
+  "keywords": [
+    "backbone",
+    "cache",
+    "local",
+    "storage"
+  ],
+  "license": "MIT",
+  "main": "backbone-localstorage.js",
+  "maintainers": [
+    {
+      "name": "moorinteractive",
+      "email": "rob@moori.nl"
+    }
+  ],
+  "name": "backbone-localstorage",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moorinteractive/backbone-localstorage.git"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "version": "0.3.2"
+}
