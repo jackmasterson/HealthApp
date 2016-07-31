@@ -98,7 +98,7 @@ a, button {
   margin: 10px; }
 
 .cal-count-span {
-  font-size: 50px; }
+  font-size: 30px; }
 
 .delete {
   font-style: bold;
@@ -115,4 +115,11 @@ a, button {
   left: 40vw; }
 
 .eat-list-ul {
-  display: inline; }
+  margin-bottom: 18vh;
+  padding-left: 0; }
+
+.saved-ul {
+  width: 24vw;
+  position: fixed;
+  right: 3vw;
+  top: 16vh; }

@@ -26,23 +26,22 @@
 	    </ul>
 	</script>
 	<script class="saved-temp" type="text/template">
-		<td class="saved-li meal-name"><%= id %></td>
-		<td class="saved-li"><%= Item %></td>
-		<td class="saved-li"><%= Brand %></td>
-		<td class="cals saved-li"><%= Calories %></td>
-		<td class="saved-li">
-			<a class="delete"> [x] </a>
-		</td>
+		<ul class="saved-ul">
+			<li class="saved-li"><%= Item %></li>
+			<li class="saved-li">Brand: <%= Brand %></li>
+			<li class="cals saved-li"><%= Calories %></li>
+			<li class="saved-li">
+				<a class="delete"> [x] </a>
+			</li>
+		</ul>
 	</script>
 
 	<div class="background">
 		<div class="shade">
-			<h1 class="main-header">Today's Food Log</h1>
+			<h1 class="main-header">Trackin' Ma Health</h1>
 			<div class="top-row cal-count">
-				
-				<h2 class="cal-head">Total Calories: </h2>
-				<span class="cal-count-span"></span>
 				<div class="eat-list-div">
+					<h2>Today's Food</h2>
 					<ul class="eat-list-ul">
 						<li><h2>Breakfast</h2></li>
 					</ul>
@@ -51,6 +50,12 @@
 					</ul>
 					<ul class="eat-list-ul">
 						<li><h2>Dinner</h2></li>
+					</ul>
+					<ul class="eat-list-ul">
+						<li>
+							<h3 class="cal-head">Total Calories: </h3>
+							<span class="cal-count-span"></span>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -68,22 +73,7 @@
 					</h3>
 				</div>
 			</div>
-			<div class="top-row eat-record">
-				<h1 class="eaten-head">Today, I've Eaten:</h1>
-				<h4>(scroll down to see all)</h4>
-				<table class="meals-eaten">
-					<thead>
-						<tr class="saved-div">
-							<th>Meal</th>
-							<th>Food</th>
-							<th>Brand</th>
-							<th>Calories</th>
-							<th>Delete</th>
-						</tr>
-					</thead>
-					<tbody class="meals-eaten-table"></tbody>
-				</table>
-			</div>
+			<div class="meals-eaten-table"></div>
 		</div>
 	</div>
 

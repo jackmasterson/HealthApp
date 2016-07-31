@@ -5,8 +5,7 @@ var calsArr = [];
 
 //sets up the table for the tracked meals
 var savedMealView = Backbone.View.extend({
-    tagName: 'tr',
-    className: 'saved-div',
+    tagName: 'div',
     template: _.template($('.saved-temp').html()),
     events: {
         "click a.delete": "deleteIt"
@@ -18,6 +17,7 @@ var savedMealView = Backbone.View.extend({
 
         //calls on the template established in index.html
         that.$el.html(this.template(this.model.attributes));
+        that.$el.attr('class', foodView.mealClass);
 
         //runs the function for what happens when the 'delete' button
         //is clicked
@@ -124,10 +124,15 @@ var foodView = Backbone.View.extend({
         var that = this;
         var classy = this.$('.temp-item').attr('class');
   //      console.log(classier);
-        console.log(classy);
+    ///    console.log(classy);
+       // console.log(eatenMeals.classes);
+        var classed = classy.split(' ');
+      //  console.log(classed);
+        foodView.mealClass = classed[1];
+       // console.log(mealClass);
 
         var formData = {
-            id: classy
+            classes: foodView.mealClass
         };
         $('.cal-count').show();
         this.$('.food-temp li span').each(function(i, er) {
@@ -135,14 +140,12 @@ var foodView = Backbone.View.extend({
             //sets the formData (which already contains the meal ID)
             //to the info below
             for (var r = 0; r < 3; r++) {
-                console.log(r);
-                console.log(that.$('.temp-item'));
-                console.log(that.$('.temp-head'));
                 //tempItem is the actual food item in the template;
                 //tempHead is the header for the food item (Food, Brand, etc);
                 var tempItemInf = that.$('.temp-item')[r].innerText;
                 var tempHeadInf = that.$('.temp-head')[r].innerText;
                 formData[tempHeadInf] = tempItemInf;
+        //        console.log(formData);
 
             }
 
@@ -163,19 +166,25 @@ var savedFoodView = Backbone.View.extend({
     el: '.meals-eaten-table',
 
     initialize: function(eatenMeals) {
+        console.log(eatenMeals);
         this.collection = new savedFoodList(eatenMeals);
+     //   console.log(this.collection);
+    //    this.class = eatenMeals.classes;
+
         this.render();
     },
 
     render: function() {
 
         this.collection.each(function(items) {
-
+            
             this.renderSaved(items);
         }, this);
     },
 
     renderSaved: function(items) {
+        var that = this;
+        console.log(items.attributes.classes);
         var savedView = new savedMealView({
             model: items
         });
