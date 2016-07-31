@@ -30,7 +30,7 @@ var savedMealView = Backbone.View.extend({
     deleteIt: function() {
 
         this.$el.remove();
-
+/*
         var calSpan = document.getElementsByClassName('cal-count-span')[0];
 
         this.$('.cals.saved-li').each(function(i, el) {
@@ -51,12 +51,12 @@ var savedMealView = Backbone.View.extend({
             //'add' function above
             calSpan.innerText = sum;
 
-        });
+        });*/
     },
 
     countIt: function() {
 
-        var sum;
+    /*    var sum;
 
         this.$('.cals').each(function(i, el) {
 
@@ -74,7 +74,7 @@ var savedMealView = Backbone.View.extend({
         
         //makes the calorie counter inner text that of the sum of this
         //function
-        calSpan.innerText = sum;
+        calSpan.innerText = sum;*/
 
     }
 });
@@ -123,13 +123,8 @@ var foodView = Backbone.View.extend({
     getInfo: function() {
         var that = this;
         var classy = this.$('.temp-item').attr('class');
-  //      console.log(classier);
-    ///    console.log(classy);
-       // console.log(eatenMeals.classes);
         var classed = classy.split(' ');
-      //  console.log(classed);
         foodView.mealClass = classed[1];
-       // console.log(mealClass);
 
         var formData = {
             classes: foodView.mealClass
@@ -170,14 +165,15 @@ var savedFoodView = Backbone.View.extend({
         this.collection = new savedFoodList(eatenMeals);
      //   console.log(this.collection);
     //    this.class = eatenMeals.classes;
-
+     //   console.log(this.collection);
+       // console.log(eatenMeals);
         this.render();
     },
 
     render: function() {
 
         this.collection.each(function(items) {
-            
+            console.log(items.attributes);
             this.renderSaved(items);
         }, this);
     },
@@ -188,8 +184,10 @@ var savedFoodView = Backbone.View.extend({
         var savedView = new savedMealView({
             model: items
         });
-
-        $('.meals-eaten-table').prepend(savedView.render().el);
+        var classed = '.'+items.attributes.classes + '-save';
+        $(classed).show();
+        $('.eat-list-div').show();
+        $(classed).append(savedView.render().el);
     }
 });
 

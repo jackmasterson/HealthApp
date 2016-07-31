@@ -63,6 +63,10 @@ a, button {
 	display: inline-block;
 }
 
+.meal-save {
+	display: none;
+}
+
 .eat-record {
 	height: 40vh;
 	border: 1px solid white;
@@ -96,7 +100,7 @@ a, button {
 .search-fill {
 	overflow: scroll;
 	border: 1px solid white;
-	position: fixed;
+	position: absolute;
 	text-align: center;
 	left: 28vw;
 	top: 15vh;
@@ -145,16 +149,27 @@ a, button {
 }
 
 .eat-list-div {
-	
+	display: none;
 }
 
 .saved-ul {
+	padding-left: 0;
+}
+
+.meals-eaten-table {
 	width: 24vw;
+	height: 70vh;
 	position: fixed;
 	right: 3vw;
 	top: 16vh;
+	padding-left: 0;
+	overflow-y: scroll;
+	overflow-x: scroll;
 }
 
+.gold {
+	color: gold;
+}
 
 
 
