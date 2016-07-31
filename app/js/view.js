@@ -86,10 +86,10 @@ var foodView = Backbone.View.extend({
     tagName: 'div',
     className: 'food-div',
     events: {
-        "click button.add": "addTo",
-        "click button.bfast": "bfastID",
-        "click button.lunch": "lunchID",
-        "click button.dinner": "dinnerID"
+        "click button.add": "showMeals",
+        "click button.bfast": "addTo",
+        "click button.lunch": "addTo",
+        "click button.dinner": "addTo"
     },
 
     //calls on the template established in index.html
@@ -101,13 +101,22 @@ var foodView = Backbone.View.extend({
         return this;
     },
 
+    showMeals: function() {
+        this.$('.meal').slideDown();
+    },
+
     addTo: function(e) {
         e.preventDefault();
+        var that = this;
 
-        this.$('.meal').slideDown();
+        
         function assignMealId(meal) {
 
-            this.$('.temp-item').attr('id', meal);
+            that.$('.temp-item').attr('id', meal);
+            
+            that.getInfo();
+           // console.log(that.$('.temp-item'));
+
         };
         /*var bfast = 'bfast';
         var lunch = 'lunch';
@@ -116,8 +125,10 @@ var foodView = Backbone.View.extend({
         assignMealId(lunch);
         assignMealId(dinner);*/
         var target = $(e.currentTarget);
-        console.log(target);
-
+        var str = target[0].className;
+       
+        assignMealId(str);
+        
 
 
     },
@@ -147,10 +158,10 @@ var foodView = Backbone.View.extend({
         });
 
         $('.eat-record').slideDown();
-
+        
         new savedFoodView(formData);
 
-    },
+    }/*,
 
     //the following three functions set the ID for the object
     //based on which button was pressed;
@@ -177,7 +188,7 @@ var foodView = Backbone.View.extend({
         var that = this;
         that.$('.temp-item').attr('id', 'Dinner');
         this.getInfo();
-    }
+    }*/
 
 });
 
