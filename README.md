@@ -23,3 +23,10 @@ Backbone
 --------
 
 Utilizes Backbones Model View Collection approach, separating the concerns into different files for both the searched food div and the selected/added/saved food div. Underscore is also utilized.
+
+To Use
+------
+
+The site is hosted using Github Pages (gh-pages) at the link below: 
+
+	[https://jackmasterson.github.io/HealthApp/]

@@ -1,128 +1,104 @@
-*{
-	text-align: center;
-	list-style-type: none;
-}
+* {
+  text-align: center;
+  list-style-type: none; }
 
 body {
-	background-color: rgba(0,0,0,0.8);
-}
+  background-color: rgba(0, 0, 0, 0.8); }
 
 table {
-	text-align: center;
-}
+  text-align: center; }
 
 tr {
-	width: 80vw;
-}
+  width: 80vw; }
 
 th {
-	width: 25%;
-	font-size: 20px;
-	color: #ccc;
-}
+  width: 25%;
+  font-size: 20px;
+  color: #ccc; }
 
 a, button {
-	cursor: pointer;
-}
+  cursor: pointer; }
 
 .search-li {
-	margin: 1%;
-}
+  margin: 1%; }
 
 .search-ul {
-	width: 10vw;
-}
+  width: 10vw; }
 
 .food-temp {
-	margin-left: 0;
-	padding-left: 0;
-}
+  margin-left: 0;
+  padding-left: 0; }
 
 .searchButton {
-	margin-left: 20px;
-}
+  margin-left: 20px; }
 
 .shade {
-	background-color: rgba(0,0,0,0.5);
-	height: 100vh;
-	width: 100vw;
-}
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  width: 100vw; }
 
 .top-row {
-	display: inline;
-}
+  display: inline; }
 
 .meal {
-	display: none;
-	margin-left: 0;
-	padding-left: 0;
-}
+  display: none;
+  margin-left: 0;
+  padding-left: 0; }
 
 .meal-li {
-	display: inline-block;
-}
+  display: inline-block; }
 
 .eat-record {
-	height: 40vh;
-	border: 1px solid white;
-	overflow-y: scroll;
-	width: 65vw;
-	position: absolute;
-	bottom: 30vh;
-	right: 8vw;
-	display: none;
-}
+  height: 40vh;
+  border: 1px solid white;
+  overflow-y: scroll;
+  width: 65vw;
+  position: absolute;
+  bottom: 30vh;
+  right: 8vw;
+  display: none; }
 
 .meals-eaten {
-	display: inline;
-	width: 80vw;
-}
+  display: inline;
+  width: 80vw; }
 
 .background {
-	background: url(..//img/grocery.jpg) no-repeat center center fixed;
-	background-size: cover;
-	color: white;
-}
+  background: url(..//img/grocery.jpg) no-repeat center center fixed;
+  background-size: cover;
+  color: white; }
 
 .greater-search {
-	color: black;
-	margin-top: 5%;
-	margin-left: 2%;
-	width: 20vw;
-	height: 80vh;
-}
+  color: black;
+  margin-top: 5%;
+  margin-left: 2%;
+  width: 20vw;
+  height: 80vh; }
 
 .search-fill {
-	overflow: scroll;
-	background-color: #ccc;
-	border: 1px solid black;
-	text-align: center;
-	margin-left: 2%;
-	width: 20vw;
-	height: 70vh;
-	display: none;
-}
+  overflow: scroll;
+  background-color: #ccc;
+  border: 1px solid black;
+  text-align: center;
+  margin-left: 2%;
+  width: 20vw;
+  height: 70vh;
+  display: none; }
 
 .cal-count {
-	position: fixed;
-	margin: 0;
-	left: 70vw;
-	width: 30vw;
-}
+  position: fixed;
+  margin: 0;
+  left: 70vw;
+  width: 30vw; }
 
-.cal-head{
-	margin: 10px;
-}
+.cal-head {
+  margin: 10px; }
 
 .cal-count-span {
-	font-size: 50px;
-}
+  font-size: 50px; }
 
 .delete {
-	font-style: bold;
-	color: red;
-}
+  font-style: bold;
+  color: red; }
 
 .attribute {
-	background-color: white;
-}
+  background-color: white; }

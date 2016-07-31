@@ -105,6 +105,20 @@ var foodView = Backbone.View.extend({
         e.preventDefault();
 
         this.$('.meal').slideDown();
+        function assignMealId(meal) {
+
+            this.$('.temp-item').attr('id', meal);
+        };
+        /*var bfast = 'bfast';
+        var lunch = 'lunch';
+        var dinner = 'dinner';
+        assignMealId(bfast);
+        assignMealId(lunch);
+        assignMealId(dinner);*/
+        var target = $(e.currentTarget);
+        console.log(target);
+
+
 
     },
 
@@ -145,6 +159,8 @@ var foodView = Backbone.View.extend({
     //each food was for
     bfastID: function() {
         var that = this;
+        
+        console.log(this);
 
         that.$('.temp-item').attr('id', 'Breakfast');
         this.getInfo();
@@ -152,6 +168,7 @@ var foodView = Backbone.View.extend({
 
     lunchID: function() {
         var that = this;
+        console.log(this);
         that.$('.temp-item').attr('id', 'Lunch');
         this.getInfo();
     },
