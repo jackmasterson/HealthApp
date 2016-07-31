@@ -113,3 +113,6 @@ a, button {
 .main-header {
   position: absolute;
   left: 40vw; }
+
+.eat-list-ul {
+  display: inline; }
