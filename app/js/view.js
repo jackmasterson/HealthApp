@@ -87,17 +87,15 @@ var foodView = Backbone.View.extend({
     className: 'food-div',
     events: {
         "click button.add": "showMeals",
-        "click button.bfast": "addTo",
-        "click button.lunch": "addTo",
-        "click button.dinner": "addTo"
+        "click button.info": "addTo"
     },
 
     //calls on the template established in index.html
     template: _.template($('.food-template').html()),
 
     render: function() {
-        this.$el.html(this.template(this.model.attributes));
 
+        this.$el.html(this.template(this.model.attributes));
         return this;
     },
 
@@ -108,45 +106,38 @@ var foodView = Backbone.View.extend({
     addTo: function(e) {
         e.preventDefault();
         var that = this;
-
-        
-        function assignMealId(meal) {
-
-            that.$('.temp-item').attr('id', meal);
-            
-            that.getInfo();
-           // console.log(that.$('.temp-item'));
-
-        };
-        /*var bfast = 'bfast';
-        var lunch = 'lunch';
-        var dinner = 'dinner';
-        assignMealId(bfast);
-        assignMealId(lunch);
-        assignMealId(dinner);*/
         var target = $(e.currentTarget);
         var str = target[0].className;
-       
-        assignMealId(str);
         
+        function assignMealId(meal) {
+            that.$('.temp-item').addClass(meal);
 
 
+            that.getInfo();
+        };
+ 
+        assignMealId(str);
+    
     },
 
     getInfo: function() {
         var that = this;
-        var classy = that.$('.temp-item').attr('id');
+        var classy = this.$('.temp-item').attr('class');
+  //      console.log(classier);
+        console.log(classy);
 
         var formData = {
             id: classy
         };
-
+        $('.cal-count').show();
         this.$('.food-temp li span').each(function(i, er) {
 
             //sets the formData (which already contains the meal ID)
             //to the info below
             for (var r = 0; r < 3; r++) {
-
+                console.log(r);
+                console.log(that.$('.temp-item'));
+                console.log(that.$('.temp-head'));
                 //tempItem is the actual food item in the template;
                 //tempHead is the header for the food item (Food, Brand, etc);
                 var tempItemInf = that.$('.temp-item')[r].innerText;
@@ -161,34 +152,7 @@ var foodView = Backbone.View.extend({
         
         new savedFoodView(formData);
 
-    }/*,
-
-    //the following three functions set the ID for the object
-    //based on which button was pressed;
-    //breakfast gets the Breakfast ID, lunch the Lunch, etc.;
-    //this is used later in the savedFoodItem div to label which meal
-    //each food was for
-    bfastID: function() {
-        var that = this;
-        
-        console.log(this);
-
-        that.$('.temp-item').attr('id', 'Breakfast');
-        this.getInfo();
-    },
-
-    lunchID: function() {
-        var that = this;
-        console.log(this);
-        that.$('.temp-item').attr('id', 'Lunch');
-        this.getInfo();
-    },
-
-    dinnerID: function() {
-        var that = this;
-        that.$('.temp-item').attr('id', 'Dinner');
-        this.getInfo();
-    }*/
+    }
 
 });
 

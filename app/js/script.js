@@ -32,10 +32,10 @@ $(function() {
             this.nutrUrl =
                 "https://api.nutritionix.com/v1_1/search/" +
                 this.searched +
-                "?results=" + "0%3A20&cal_min=" +
+                "?results=" + "0%3A20"/*&cal_min=" +
                 this.calMin +
                 "&cal_max=" +
-                this.calMax +
+                this.calMax +*/+
                 "&fields=*&appId=" +
                 apiID +
                 "&appKey=" +

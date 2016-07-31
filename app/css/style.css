@@ -30,7 +30,8 @@ a, button {
   padding-left: 0; }
 
 .searchButton {
-  margin-left: 20px; }
+  margin-left: 20px;
+  width: 100px; }
 
 .shade {
   background-color: rgba(0, 0, 0, 0.5);
@@ -76,19 +77,22 @@ a, button {
 
 .search-fill {
   overflow: scroll;
-  background-color: #ccc;
-  border: 1px solid black;
+  border: 1px solid white;
+  position: fixed;
   text-align: center;
-  margin-left: 2%;
-  width: 20vw;
+  left: 28vw;
+  top: 15vh;
+  width: 45vw;
   height: 70vh;
+  color: white;
   display: none; }
 
 .cal-count {
   position: fixed;
   margin: 0;
   left: 70vw;
-  width: 30vw; }
+  width: 30vw;
+  display: none; }
 
 .cal-head {
   margin: 10px; }
@@ -101,4 +105,11 @@ a, button {
   color: red; }
 
 .attribute {
-  background-color: white; }
+  background-color: white;
+  position: fixed;
+  width: 100vw;
+  bottom: 0.5vh; }
+
+.main-header {
+  position: absolute;
+  left: 40vw; }
