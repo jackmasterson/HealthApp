@@ -26,11 +26,11 @@ var savedMealView = Backbone.View.extend({
     },
 
     deleteIt: function() {
-      //  console.log(this.$el);
-        console.log(this.collection);
-      //  this.$el.children = [];
-        //console.log(this.$el);
+        var cals = $('.calorie-number')[0];
+        var deleteCals = this.$el[0].children[0].children[2].children[0].innerText;
+        console.log(deleteCals, cals);
         this.remove();
+
 
     }
 });
