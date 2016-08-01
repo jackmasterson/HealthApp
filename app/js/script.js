@@ -52,7 +52,10 @@ $(function() {
                 dataType: 'json',
             })
             .done(function(response) {
+         //       console.log(response);
                 var foodInfo = [];
+             //   var additionalInfo = [];
+
                 for (var i = 0; i < response.hits.length; i++) {
                     var fields = response.hits[i].fields;
                     var item = fields.item_name;
@@ -61,6 +64,11 @@ $(function() {
                     var serving = fields.nf_serving_size_qty;
                     var unit = fields.nf_serving_size_unit;
                     var fat = fields.nf_total_fat;
+                    var calsFromFat = fields.nf_calories_from_fat;
+                    var chol = fields.nf_cholesterol;
+                    var sodium = fields.nf_sodium;
+                    var sugar = fields.nf_sugars;
+                    var carbs = fields.nf_total_carbohydrate;
 
                     //sends the information from the for loop
                     //into the foodInfo array with headings used
@@ -70,16 +78,25 @@ $(function() {
                         "brand": brand,
                         "cal": cal,
                         "serving": serving + " " + unit,
-                        "fat": fat
+                        "fat": fat,
+                        "caloriesFromFat": calsFromFat,
+                        "cholesterol": chol,
+                        "sodium": sodium,
+                        "sugar": sugar,
+                        "carbs": carbs
                     });
+
 
                 }
 
                 //using Underscore, makes sure the array foodInfo
                 //doesn't contain duplicates, then initiates
                 //a foodListView from those unique strings
-                var unique = _.uniq(foodInfo);
-                new foodListView(unique);
+                var uniqueFood = _.uniq(foodInfo);
+            //    var uniqueAdditional = _.uniq(additionalInfo);
+                new foodListView(uniqueFood);
+            //    new additionalInfoView(uniqueAdditional);
+
             });
         },
     };

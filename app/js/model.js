@@ -15,3 +15,9 @@ var savedFoodItem = Backbone.Model.extend({
         Item: "no food selected yet!"
     }
 });
+
+var additionalItem = Backbone.Model.extend({
+	defaults: {
+		item: "nothing selected yet!"
+	}
+});

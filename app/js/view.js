@@ -21,62 +21,8 @@ var savedMealView = Backbone.View.extend({
 
         //runs the function for what happens when the 'delete' button
         //is clicked
-        this.countIt();
+     //   this.countIt();
         return this;
-    },
-
-    //function for setting the calorie count after an item
-    //is deleted
-    deleteIt: function() {
-      //  console.log($('.calorie-number')[0].innerHTML);
-
-        this.$el.remove();
-/*
-        var calSpan = document.getElementsByClassName('cal-count-span')[0];
-
-        this.$('.cals.saved-li').each(function(i, el) {
-
-            var parse = parseInt(el.innerText);
-            var index = calsArr.indexOf(parse);
-
-            //removes the item that matches the index variable
-            calsArr.splice(index, 1);
-            var sum = calsArr.reduce(add, 0);
-
-            //adds the remaining values in the array
-            function add(a, b) {
-                return a + b;
-            }
-
-            //sets the array's inner text to the answer from the
-            //'add' function above
-            calSpan.innerText = sum;
-
-        });*/
-    },
-
-    countIt: function() {
-
-    /*    var sum;
-
-        this.$('.cals').each(function(i, el) {
-
-            var parsed = parseInt(el.innerText);
-            calsArr.push(parsed);
-            sum = calsArr.reduce(add, 0);
-
-            //adds the values in the array 
-            function add(a, b) {
-                return a + b;
-            }
-        });
-
-        var calSpan = document.getElementsByClassName('cal-count-span')[0];
-        
-        //makes the calorie counter inner text that of the sum of this
-        //function
-        calSpan.innerText = sum;*/
-
     }
 });
 
@@ -120,13 +66,16 @@ var foodView = Backbone.View.extend({
 
     hoverOut: function() {
         this.$('.meal').hide();
+
     },
 
     addTo: function(e) {
         e.preventDefault();
+        console.log(this);
         var that = this;
         var target = $(e.currentTarget);
         var str = target[0].className;
+        console.log(that.$('.temp-item'));
         
         function assignMealId(meal) {
             that.$('.temp-item').addClass(meal);
@@ -146,7 +95,7 @@ var foodView = Backbone.View.extend({
         });
         $('.food-div').hide();
         this.calorieAdd();
-        this.$el.append(workoutView.render().html);
+    //    this.$el.append(workoutView.render().html);
     
     },
 
@@ -157,12 +106,7 @@ var foodView = Backbone.View.extend({
     },
 
     calorieSubtract: function() {
-        console.log('subtract!');
-    //    console.log(this.calorieArray);
-        console.log(this.$('.cals.saved-li'));
-        console.log(this.clickedCalories);
-    //    this.calorieArray.remove(this.clickedCalories);
-       // this.calorieMath();
+
     },
 
     calorieMath: function() {
@@ -184,58 +128,79 @@ var foodView = Backbone.View.extend({
         var classy = this.$('.temp-item').attr('class');
         var classed = classy.split(' ');
         foodView.mealClass = classed[1];
-
+     //   console.log(that);
         var formData = {
             classes: foodView.mealClass
         };
-        $('.calorie-counter').show();
-        this.$('.food-temp li span').each(function(i, er) {
 
+        var additionalData = {};
+        
+
+        $('.calorie-counter').show();
+
+        this.$('.food-temp li span').each(function(i, er) {
+        //    console.log(i);
+          //  console.log(er);
             //sets the formData (which already contains the meal ID)
             //to the info below
-            for (var r = 0; r < 3; r++) {
+            for (var r = 0; r < 9; r++) {
                 //tempItem is the actual food item in the template;
                 //tempHead is the header for the food item (Food, Brand, etc);
                 var tempItemInf = that.$('.temp-item')[r].innerText;
                 var tempHeadInf = that.$('.temp-head')[r].innerText;
                 formData[tempHeadInf] = tempItemInf;
-        //        console.log(formData);
-
+       //         console.log(formData);
+                console.log(formData);
+       
             }
-
         });
 
+
         $('.eat-record').slideDown();
+      //  console.log(formData);
         
         new savedFoodView(formData);
+        new moreInfoView(formData);
 
     }
 
 });
 
-var workoutView = Backbone.View.extend({
+var additionalView = Backbone.View.extend({
     tagName: 'div',
-    className: 'daily-workout',
-    template: _.template($('.workout-template').html()),
+    className: 'additional-info',
+    template: _.template($('.additional-template').html()),
 
-    render: function() {
-        console.log('ahhiaii');
-        var today = new Date();
-        var day = today.getDay();
-
-        console.log(day);
-        if(day % 2 == 0) {
-            this.legDay();
-        }
-        else {
-            this.armDay();
-        }
-        console.log(this.$el);
-        this.$el.html(this.template(this.model.attributes));
+    initialize: function() {
+      //  var additionalData = {};
+        console.log(this);
+        $('.additional-fill').append(this.$el.html(this.template(this.model.attributes)));
+        console.log(this.$el.html(this.template(this.model.attributes)));
         return this;
 
     }
-})
+});
+
+var moreInfoView = Backbone.View.extend({
+    el: '.additional-fill',
+
+    initialize: function(moreInfo){
+        this.collection = new additionalList(moreInfo);
+        this.render();
+    },
+
+    render: function() {
+        this.collection.each(function(items){
+            this.renderMore(items);
+        }, this);
+    },
+
+    renderMore: function(items) {
+        var moreView = new additionalView({
+            model: items
+        });
+    }
+});
 
 //establishes the food view for the 'Items I've eaten today' div,
 //the savedFood div
@@ -244,19 +209,16 @@ var savedFoodView = Backbone.View.extend({
     el: '.meals-eaten-table',
 
     initialize: function(eatenMeals) {
-       // console.log(eatenMeals);
+
         this.collection = new savedFoodList(eatenMeals);
-     //   console.log(this.collection);
-    //    this.class = eatenMeals.classes;
-     //   console.log(this.collection);
-       // console.log(eatenMeals);
         this.render();
+
     },
 
     render: function() {
 
         this.collection.each(function(items) {
-        //    console.log(items.attributes);
+
             this.renderSaved(items);
         }, this);
     },
@@ -279,6 +241,7 @@ var foodListView = Backbone.View.extend({
     el: '.search-fill',
 
     initialize: function(initialFoods) {
+
         this.$el.empty();
         this.collection = new foodList(initialFoods);
         this.render();
@@ -301,3 +264,27 @@ var foodListView = Backbone.View.extend({
 
     }
 });
+
+var additionalInfoView = Backbone.View.extend({
+    el: '.additional-fill',
+
+    initialize: function(initialAdditional){
+        this.$el.empty();
+        this.collection = new additionalList(initialAdditional);
+        this.render();
+        console.log(initialAdditional);
+
+    },
+
+    render: function() {
+        this.collection.each(function(item){
+            this.renderAdditional(item);
+        }, this);
+    },
+    renderAdditional: function(item){
+        var additional = new additionalView({
+            model: item
+        });
+        this.$el.append(additional.render().el);
+    }
+})

@@ -8,10 +8,46 @@
 <body>
 	<script class="food-template" type="text/template">
 	    <ul class="food-temp">
-	        <li class="item"><span class="temp-head">Item</span>: <span class="temp-item"><%= item %></span></li>
-	        <li class="brand"><span class="temp-head">Brand</span>: <span class="temp-item"><%= brand %></span></li>
-	        <li class="cal"><span class="temp-head">Calories</span>: <span class="temp-item calories"><%= cal %></span></li>
+	        <li class="item">
+	        	<span class="temp-head">Item</span>: 
+	        	<span class="temp-item"><%= item %></span>
+	        </li>
+	        <li class="brand">
+	        	<span class="temp-head">Brand</span>: 
+	        	<span class="temp-item"><%= brand %></span>
+	        </li>
+	        <li class="cal">
+	        	<span class="temp-head">Calories</span>: 
+	        	<span class="temp-item calories"><%= cal %>
+	        	</span>
+	        </li>
 	    </ul>
+	    <ul class="additional-div">
+	    	<li class="carbs">
+	        	<span class="temp-head">Carbs</span>: 
+	        	<span class="temp-item"><%= carbs %></span>
+	        </li>
+	       	<li class="calsFromFat">
+	        	<span class="temp-head">Calories From Fat</span>: 
+	        	<span class="temp-item"><%= caloriesFromFat %></span>
+	        </li>
+	        <li class="cholesterol">
+	        	<span class="temp-head">Cholesterol</span>: 
+	        	<span class="temp-item"><%= cholesterol %></span>
+	        </li>
+	        <li class="fat">
+	        	<span class="temp-head">Fat</span>: 
+	        	<span class="temp-item"><%= fat %></span>
+	        </li>
+	        <li class="sodium">
+	        	<span class="temp-head">Sodium</span>: 
+	        	<span class="temp-item"><%= sodium %></span>
+	        </li>
+	        <li class="sugar">
+	        	<span class="temp-head">Sugar</span>: 
+	        	<span class="temp-item"><%= sugar %></span>
+	        </li>
+		</ul>
 	    <ul class="meal">
 	    	<li class="meal-li">
 	    		<button class="bfast info">Breakfast</button>
@@ -34,8 +70,14 @@
 			</li>
 		</ul>
 	</script>
-	<script class="workout-template" type="text/template">
-		<div class="workout-div">Hey</div>
+	<script class="additional-template" type="text/template">
+		<ul class="additional-temp">
+			<li>Carbs: <%= Carbs %></li>
+			<li class="saved-li">Sugar: <%= Sugar %></li>
+			<li class="saved-li">Cholesterol: <%= Cholesterol %></li>
+			<li class="saved-li">Fat: <%= Fat %></li>
+			<li class="saved-li">Sodium: <%= Sodium %></li>
+		</ul>
 	</script>
 
 	<div class="background">
@@ -53,6 +95,7 @@
 						<button class="searchButton">Click to Search</button>
 					</ul>
 				<div class="search-fill"></div>
+				<div class="additional-fill"></div>
 				<div class="attribute">
 					<h3>Powered By
 						<a target="_blank" href="http://www.nutritionix.com/business/api">Nutritionix</a>
