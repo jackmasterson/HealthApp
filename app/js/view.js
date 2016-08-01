@@ -23,6 +23,15 @@ var savedMealView = Backbone.View.extend({
         //is clicked
      //   this.countIt();
         return this;
+    },
+
+    deleteIt: function() {
+      //  console.log(this.$el);
+        console.log(this.collection);
+      //  this.$el.children = [];
+        //console.log(this.$el);
+        this.remove();
+
     }
 });
 
@@ -54,16 +63,6 @@ var foodView = Backbone.View.extend({
 
     },
 
-    legDay: function() {
-        console.log('today\s a leg day!');
-        
-
-    },
-
-    armDay: function() {
-        console.log('today\s an arm day!');
-    },
-
     hoverOut: function() {
         this.$('.meal').hide();
 
@@ -71,11 +70,11 @@ var foodView = Backbone.View.extend({
 
     addTo: function(e) {
         e.preventDefault();
-        console.log(this);
+    //    console.log(this);
         var that = this;
         var target = $(e.currentTarget);
         var str = target[0].className;
-        console.log(that.$('.temp-item'));
+     //   console.log(that.$('.temp-item'));
         
         function assignMealId(meal) {
             that.$('.temp-item').addClass(meal);
@@ -110,11 +109,11 @@ var foodView = Backbone.View.extend({
     },
 
     calorieMath: function() {
-        console.log(this.calorieArray);
+    //    console.log(this.calorieArray);
         var len = this.calorieArray.length;
         
         for(var i=0; i<len; i++){
-            console.log(this.calorieArray[i]);
+      //      console.log(this.calorieArray[i]);
             this.totalCalories += parseInt(this.calorieArray[i]);
             
         }
@@ -150,7 +149,7 @@ var foodView = Backbone.View.extend({
                 var tempHeadInf = that.$('.temp-head')[r].innerText;
                 formData[tempHeadInf] = tempItemInf;
        //         console.log(formData);
-                console.log(formData);
+      //          console.log(formData);
        
             }
         });
@@ -173,9 +172,9 @@ var additionalView = Backbone.View.extend({
 
     initialize: function() {
       //  var additionalData = {};
-        console.log(this);
+    //    console.log(this);
         $('.additional-fill').append(this.$el.html(this.template(this.model.attributes)));
-        console.log(this.$el.html(this.template(this.model.attributes)));
+    //    console.log(this.$el.html(this.template(this.model.attributes)));
         return this;
 
     }

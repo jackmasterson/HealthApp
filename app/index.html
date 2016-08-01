@@ -64,7 +64,7 @@
 		<ul class="saved-ul">
 			<li class="saved-li"><%= Item %></li>
 			<li class="saved-li">Brand: <%= Brand %></li>
-			<li class="cals saved-li"><%= Calories %></li>
+			<li class="cals saved-li">Calories: <%= Calories %></li>
 			<li class="saved-li">
 				<a class="delete"> [x] </a>
 			</li>
@@ -72,6 +72,11 @@
 	</script>
 	<script class="additional-template" type="text/template">
 		<ul class="additional-temp">
+			<li>
+				<h1>Additional Info</h1>
+			</li>
+			<li class="additional-item-header"><%= Item %></li>
+			<li>by <%= Brand %></li>
 			<li>Carbs: <%= Carbs %></li>
 			<li class="saved-li">Sugar: <%= Sugar %></li>
 			<li class="saved-li">Cholesterol: <%= Cholesterol %></li>

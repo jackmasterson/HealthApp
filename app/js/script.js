@@ -14,6 +14,7 @@ $(function() {
             //calorie minimum, and calorie maximum bars;
             //if left blank, the search will return random foods
             $(".searchButton").click(function() {
+                $('.additional-info').hide();
 
                 that.searched = $(search[0]).val();
                 that.calMin = $(calMin[0]).val();
