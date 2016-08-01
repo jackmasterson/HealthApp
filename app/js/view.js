@@ -28,6 +28,7 @@ var savedMealView = Backbone.View.extend({
     //function for setting the calorie count after an item
     //is deleted
     deleteIt: function() {
+      //  console.log($('.calorie-number')[0].innerHTML);
 
         this.$el.remove();
 /*
@@ -104,6 +105,17 @@ var foodView = Backbone.View.extend({
 
     hover: function() {
         this.$('.meal').slideDown();
+
+    },
+
+    legDay: function() {
+        console.log('today\s a leg day!');
+        
+
+    },
+
+    armDay: function() {
+        console.log('today\s an arm day!');
     },
 
     hoverOut: function() {
@@ -124,16 +136,33 @@ var foodView = Backbone.View.extend({
         };
  
         assignMealId(str);
-        this.calorieCounter();
-    
-    },
-
-    calorieCounter: function() {
         
         this.clickedCalories = this.$('.temp-item.calories')[0]
             .innerHTML;
+        
+        
+        $('.delete').click(function(){
+            that.calorieSubtract();
+        });
+        $('.food-div').hide();
+        this.calorieAdd();
+        this.$el.append(workoutView.render().html);
+    
+    },
+
+    calorieAdd: function() {
+
         this.calorieArray.push(this.clickedCalories);
         this.calorieMath();
+    },
+
+    calorieSubtract: function() {
+        console.log('subtract!');
+    //    console.log(this.calorieArray);
+        console.log(this.$('.cals.saved-li'));
+        console.log(this.clickedCalories);
+    //    this.calorieArray.remove(this.clickedCalories);
+       // this.calorieMath();
     },
 
     calorieMath: function() {
@@ -142,9 +171,12 @@ var foodView = Backbone.View.extend({
         
         for(var i=0; i<len; i++){
             console.log(this.calorieArray[i]);
-            this.totalCalories = parseInt(this.calorieArray[i])+this.totalCalories;
-            console.log(this.totalCalories);
+            this.totalCalories += parseInt(this.calorieArray[i]);
+            
         }
+
+        $('.calorie-number')[0].innerHTML = this.totalCalories;
+
     },
 
     getInfo: function() {
@@ -180,6 +212,30 @@ var foodView = Backbone.View.extend({
     }
 
 });
+
+var workoutView = Backbone.View.extend({
+    tagName: 'div',
+    className: 'daily-workout',
+    template: _.template($('.workout-template').html()),
+
+    render: function() {
+        console.log('ahhiaii');
+        var today = new Date();
+        var day = today.getDay();
+
+        console.log(day);
+        if(day % 2 == 0) {
+            this.legDay();
+        }
+        else {
+            this.armDay();
+        }
+        console.log(this.$el);
+        this.$el.html(this.template(this.model.attributes));
+        return this;
+
+    }
+})
 
 //establishes the food view for the 'Items I've eaten today' div,
 //the savedFood div
