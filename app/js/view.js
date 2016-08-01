@@ -14,30 +14,33 @@ var savedMealView = Backbone.View.extend({
     render: function() {
 
         var that = this;
-
-        //calls on the template established in index.html
         that.$el.html(this.template(this.model.attributes));
         that.$el.attr('class', foodView.mealClass);
 
-        //runs the function for what happens when the 'delete' button
-        //is clicked
-     //   this.countIt();
         return this;
     },
 
     deleteIt: function() {
-        var cals = $('.calorie-number')[0];
-        var deleteCals = this.$el[0].children[0].children[2].children[0].innerText;
-        console.log(deleteCals, cals);
+        var that = this;
+        var cals = parseInt($('.calorie-number')[0].innerText);
+      //  function deleteMath() {
+            var deleteCals = that.$el[0].children[0].children[2].children[0].innerText;
+            console.log(cals);
+            cals = cals - parseInt(deleteCals);
+           // console.log(cals);    
+     //   };
+       // deleteMath();
+        console.log(cals);
+        $('.calorie-number')[0].innerHTML = cals;
+
+       // console.log(deleteCals, cals);
         this.remove();
+
 
 
     }
 });
 
-//view established for the searched food
-//also adds click function events when an 'add' or [meal] button
-//is pressed
 var foodView = Backbone.View.extend({
     tagName: 'div',
     className: 'food-div',
