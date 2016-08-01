@@ -27,7 +27,8 @@ a, button {
 
 .food-temp {
   margin-left: 0;
-  padding-left: 0; }
+  padding-left: 0;
+  padding-top: 15px; }
 
 .searchButton {
   margin-left: 20px;
@@ -44,7 +45,8 @@ a, button {
 .meal {
   display: none;
   margin-left: 0;
-  padding-left: 0; }
+  padding-left: 0;
+  padding-bottom: 20px; }
 
 .meal-li {
   display: inline-block; }
@@ -90,11 +92,11 @@ a, button {
   color: white;
   display: none; }
 
-.cal-count {
+.calorie-counter {
   position: fixed;
   margin: 0;
-  left: 70vw;
-  width: 30vw;
+  left: 6vw;
+  top: 13vh;
   display: none; }
 
 .cal-head {

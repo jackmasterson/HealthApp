@@ -86,9 +86,12 @@ var foodView = Backbone.View.extend({
     tagName: 'div',
     className: 'food-div',
     events: {
-        "click button.add": "showMeals",
+        "mouseenter": "hover",
+        "mouseleave": "hoverOut",
         "click button.info": "addTo"
     },
+    calorieArray: [],
+    totalCalories: 0,
 
     //calls on the template established in index.html
     template: _.template($('.food-template').html()),
@@ -99,8 +102,12 @@ var foodView = Backbone.View.extend({
         return this;
     },
 
-    showMeals: function() {
+    hover: function() {
         this.$('.meal').slideDown();
+    },
+
+    hoverOut: function() {
+        this.$('.meal').hide();
     },
 
     addTo: function(e) {
@@ -117,7 +124,27 @@ var foodView = Backbone.View.extend({
         };
  
         assignMealId(str);
+        this.calorieCounter();
     
+    },
+
+    calorieCounter: function() {
+        
+        this.clickedCalories = this.$('.temp-item.calories')[0]
+            .innerHTML;
+        this.calorieArray.push(this.clickedCalories);
+        this.calorieMath();
+    },
+
+    calorieMath: function() {
+        console.log(this.calorieArray);
+        var len = this.calorieArray.length;
+        
+        for(var i=0; i<len; i++){
+            console.log(this.calorieArray[i]);
+            this.totalCalories = parseInt(this.calorieArray[i])+this.totalCalories;
+            console.log(this.totalCalories);
+        }
     },
 
     getInfo: function() {
@@ -129,7 +156,7 @@ var foodView = Backbone.View.extend({
         var formData = {
             classes: foodView.mealClass
         };
-        $('.cal-count').show();
+        $('.calorie-counter').show();
         this.$('.food-temp li span').each(function(i, er) {
 
             //sets the formData (which already contains the meal ID)
@@ -161,7 +188,7 @@ var savedFoodView = Backbone.View.extend({
     el: '.meals-eaten-table',
 
     initialize: function(eatenMeals) {
-        console.log(eatenMeals);
+       // console.log(eatenMeals);
         this.collection = new savedFoodList(eatenMeals);
      //   console.log(this.collection);
     //    this.class = eatenMeals.classes;
@@ -173,14 +200,14 @@ var savedFoodView = Backbone.View.extend({
     render: function() {
 
         this.collection.each(function(items) {
-            console.log(items.attributes);
+        //    console.log(items.attributes);
             this.renderSaved(items);
         }, this);
     },
 
     renderSaved: function(items) {
         var that = this;
-        console.log(items.attributes.classes);
+     //   console.log(items.attributes.classes);
         var savedView = new savedMealView({
             model: items
         });

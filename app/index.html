@@ -10,9 +10,8 @@
 	    <ul class="food-temp">
 	        <li class="item"><span class="temp-head">Item</span>: <span class="temp-item"><%= item %></span></li>
 	        <li class="brand"><span class="temp-head">Brand</span>: <span class="temp-item"><%= brand %></span></li>
-	        <li class="cal"><span class="temp-head">Calories</span>: <span class="temp-item"><%= cal %></span></li>
+	        <li class="cal"><span class="temp-head">Calories</span>: <span class="temp-item calories"><%= cal %></span></li>
 	    </ul>
-	    <button class="add">Add</button>
 	    <ul class="meal">
 	    	<li class="meal-li">
 	    		<button class="bfast info">Breakfast</button>
@@ -39,6 +38,10 @@
 	<div class="background">
 		<div class="shade">
 			<h1 class="main-header">Trackin' Ma Health</h1>
+			<div class="calorie-counter">
+				<h2>Calories: </h2>
+				<span class="calorie-number"></span>
+			</div>
 			<div class="top-row greater-search">
 					<ul class="search-ul">
 						<li class="search-li">
