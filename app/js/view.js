@@ -176,7 +176,15 @@ var foodView = Backbone.View.extend({
      //   console.log(localStorage.getItem('today'));
 
         $('.save-button').click(function(){
-            var key = $('.save-input').val();
+            var date = new Date();
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+            var dateFormatted = month + '/' + day + '/' +
+                year;
+
+              console.log(dateFormatted);
+            var key = dateFormatted;
             localStorage.setItem(key, JSON.stringify(that.val));
             console.log(localStorage);
         });

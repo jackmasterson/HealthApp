@@ -104,6 +104,8 @@ $(function() {
                 }*/
                 for ( var i = 0, len = localStorage.length; i < len; ++i ) {
                   var key = localStorage.key( i );
+
+                //  console.log(date);
                   var keys = "<h1 class='keys'>"+key+"</h1>";
                   $('.save-it').append(keys);
 
