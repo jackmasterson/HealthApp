@@ -31,7 +31,7 @@ var savedMealView = Backbone.View.extend({
      //   };
        // deleteMath();
         console.log(cals);
-        $('.calorie-number')[0].innerHTML = cals;g
+        $('.calorie-number')[0].innerHTML = cals;
 
        // console.log(deleteCals, cals);
         this.remove();
@@ -52,12 +52,12 @@ var foodView = Backbone.View.extend({
     calorieArray: [],
     totalCalories: 0,
     today: [],
+    val: [],
 
     //calls on the template established in index.html
     template: _.template($('.food-template').html()),
 
     render: function() {
-
         this.$el.html(this.template(this.model.attributes));
         return this;
     },
@@ -74,11 +74,14 @@ var foodView = Backbone.View.extend({
 
     addTo: function(e) {
         e.preventDefault();
-    //    console.log(this);
         var that = this;
+
+
+      //  alert('great - thanks! please continue');
+        $('.save-div').slideUp();
+        $('.search-ul').slideDown();
         var target = $(e.currentTarget);
         var str = target[0].className;
-     //   console.log(that.$('.temp-item'));
         
         function assignMealId(meal) {
             that.$('.temp-item').addClass(meal);
@@ -98,6 +101,7 @@ var foodView = Backbone.View.extend({
         });
         $('.food-div').hide();
         this.calorieAdd();
+
     //    this.$el.append(workoutView.render().html);
     
     },
@@ -160,26 +164,17 @@ var foodView = Backbone.View.extend({
 
 
         $('.eat-record').slideDown();
-      //  console.log(formData);
         
         new savedFoodView(formData);
         new moreInfoView(formData);
-        console.log(formData);
         
-
-        this.today.push(formData);
-        console.log(this.today);
-       // JSON.stringify(this.today);
-        console.log(this.today);
-      //  console.log(localStorage);
-        localStorage.setItem('today', JSON.stringify(this.today));
+        this.val.push(formData);
+        console.log(this.val);
+        var key = $('.save-input').val();
+        console.log(key);
+        localStorage.setItem(key, JSON.stringify(this.val));
      //   console.log(localStorage.getItem('today'));
-        console.log(localStorage);
-        
 
-       // if(localStorage.getItem('today')){
-         //   $('.meals-eaten-table').html(localStorage.getItem('today'));
-       // }
 
     }
 
@@ -308,6 +303,7 @@ var additionalInfoView = Backbone.View.extend({
         this.$el.append(additional.render().el);
     }
 });
+
 
 
 

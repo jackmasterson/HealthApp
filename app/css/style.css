@@ -154,3 +154,13 @@ a, button {
 .additional-item-header {
   color: gold;
   font-size: 22px; }
+
+.save-it {
+  color: white;
+  width: 20vw;
+  position: fixed;
+  top: 35vh;
+  left: 5vw; }
+
+.save-hide {
+  display: none; }
