@@ -2,7 +2,9 @@
 //declares the global variable for the calories array;
 //info will be pushed here from the calorie tracker down below
 var calsArr = [];
-
+if(localStorage){
+    console.log(localStorage);
+}
 //sets up the table for the tracked meals
 var savedMealView = Backbone.View.extend({
     tagName: 'div',
@@ -170,12 +172,16 @@ var foodView = Backbone.View.extend({
         
         this.val.push(formData);
         console.log(this.val);
-        var key = $('.save-input').val();
-        console.log(key);
-        localStorage.setItem(key, JSON.stringify(this.val));
+      //  var key = $('.save-input').val();
+      //  console.log(key);
+      //  localStorage.setItem(key, JSON.stringify(this.val));
      //   console.log(localStorage.getItem('today'));
 
-
+        $('.save-button').click(function(){
+            var key = $('.save-input').val();
+            localStorage.setItem(key, JSON.stringify(that.val));
+            console.log(localStorage);
+        });
     }
 
 });
