@@ -31,7 +31,7 @@ var savedMealView = Backbone.View.extend({
      //   };
        // deleteMath();
         console.log(cals);
-        $('.calorie-number')[0].innerHTML = cals;
+        $('.calorie-number')[0].innerHTML = cals;g
 
        // console.log(deleteCals, cals);
         this.remove();
@@ -51,6 +51,7 @@ var foodView = Backbone.View.extend({
     },
     calorieArray: [],
     totalCalories: 0,
+    today: [],
 
     //calls on the template established in index.html
     template: _.template($('.food-template').html()),
@@ -163,6 +164,22 @@ var foodView = Backbone.View.extend({
         
         new savedFoodView(formData);
         new moreInfoView(formData);
+        console.log(formData);
+        
+
+        this.today.push(formData);
+        console.log(this.today);
+       // JSON.stringify(this.today);
+        console.log(this.today);
+      //  console.log(localStorage);
+        localStorage.setItem('today', JSON.stringify(this.today));
+     //   console.log(localStorage.getItem('today'));
+        console.log(localStorage);
+        
+
+       // if(localStorage.getItem('today')){
+         //   $('.meals-eaten-table').html(localStorage.getItem('today'));
+       // }
 
     }
 
@@ -235,6 +252,7 @@ var savedFoodView = Backbone.View.extend({
         $(classed).show();
         $('.eat-list-div').show();
         $(classed).append(savedView.render().el);
+     //   this.storeIt();
     }
 });
 
@@ -289,4 +307,11 @@ var additionalInfoView = Backbone.View.extend({
         });
         this.$el.append(additional.render().el);
     }
-})
+});
+
+
+
+
+
+
+

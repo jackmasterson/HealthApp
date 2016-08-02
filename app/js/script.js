@@ -96,6 +96,14 @@ $(function() {
                 var uniqueFood = _.uniq(foodInfo);
             //    var uniqueAdditional = _.uniq(additionalInfo);
                 new foodListView(uniqueFood);
+
+                if(localStorage.getItem('today')){
+                    //$('.meals-eaten-table').html(localStorage.getItem('today'));
+                    var storedInfo = JSON.parse(localStorage.getItem('today'));
+                    new savedFoodView(storedInfo);
+                }
+
+                
             //    new additionalInfoView(uniqueAdditional);
 
             });
