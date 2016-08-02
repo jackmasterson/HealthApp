@@ -96,12 +96,25 @@ $(function() {
                 var uniqueFood = _.uniq(foodInfo);
             //    var uniqueAdditional = _.uniq(additionalInfo);
                 new foodListView(uniqueFood);
-
-                if(localStorage.getItem('today')){
+               // console.log(localStorage);
+              /*  if(localStorage.getItem('today')){
                     //$('.meals-eaten-table').html(localStorage.getItem('today'));
                     var storedInfo = JSON.parse(localStorage.getItem('today'));
                     new savedFoodView(storedInfo);
+                }*/
+                for ( var i = 0, len = localStorage.length; i < len; ++i ) {
+                  var key = localStorage.key( i );
+                  var keys = "<h1 class='keys'>"+key+"</h1>";
+                  $('.save-it').append(keys);
+
                 }
+                $('.keys').click(function(clicked){
+               //     console.log(this.innerText);
+                    var currentKey = this.innerText;
+                    var storedInfo = JSON.parse(localStorage.getItem(currentKey));
+                    console.log(storedInfo);
+                    new savedFoodView(storedInfo);
+                })
 
                 
             //    new additionalInfoView(uniqueAdditional);

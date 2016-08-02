@@ -162,5 +162,9 @@ a, button {
   top: 35vh;
   left: 5vw; }
 
+.keys {
+  color: white;
+  cursor: pointer; }
+
 .save-hide {
   display: none; }

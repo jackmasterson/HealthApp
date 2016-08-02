@@ -2,9 +2,7 @@
 //declares the global variable for the calories array;
 //info will be pushed here from the calorie tracker down below
 var calsArr = [];
-if(localStorage){
-    console.log(localStorage);
-}
+
 //sets up the table for the tracked meals
 var savedMealView = Backbone.View.extend({
     tagName: 'div',
