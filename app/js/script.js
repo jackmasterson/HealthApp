@@ -114,7 +114,11 @@ $(function() {
                     var storedInfo = JSON.parse(localStorage.getItem(currentKey));
                     console.log(storedInfo);
                     new savedFoodView(storedInfo);
-                })
+                });
+
+                $('.clearStorage').click(function(){
+                    localStorage.clear();
+                });
 
                 
             //    new additionalInfoView(uniqueAdditional);

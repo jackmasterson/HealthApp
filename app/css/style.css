@@ -168,3 +168,6 @@ a, button {
 
 .save-hide {
   display: none; }
+
+.removeStorage {
+  cursor: pointer; }
