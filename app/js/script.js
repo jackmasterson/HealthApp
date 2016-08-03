@@ -19,28 +19,19 @@ $(function() {
                 $('.search-fill').slideDown();
 
             });
-                var len = localStorage.length;
 
-                for ( var i = 0; i < len; ++i ) {
+            var len = localStorage.length;
+            var keys = [];
+            for ( var i = 0; i < len; ++i ) {
+                var key = localStorage.key( i );
+                keys.push({"key": key});
+                
+            }
+            var storeHeader = new storedKeyView(keys);
+            
+         //   var keys = "<li><h1 class='keys'>"+key+"</h1></li>";
+            
 
-                  var key = localStorage.key( i );
-                  var keys = "<h1 class='keys'>"+key+"</h1>";
-                  $('.save-it').append(keys);
-
-                }
-
-                $('.keys').click(function(clicked){
-
-                    var currentKey = this.innerText;
-                    var storedInfo = JSON.parse(localStorage.
-                        getItem(currentKey));
-    
-                    new storedView(storedInfo);
-                });
-
-                $('.clearStorage').click(function(){
-                    localStorage.clear();
-                });
         },
 
         //initializes the API call to Nutritionix API
@@ -118,6 +109,7 @@ $(function() {
             });
         },
     };
+
 
     foodSet.query();
 

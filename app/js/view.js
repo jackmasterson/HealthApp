@@ -219,6 +219,38 @@ var storedItView = Backbone.View.extend({
     }
 });
 
+var storedKeyHeaderView = Backbone.View.extend({
+    tagName: 'ul',
+    className: 'stored-key-ul',
+    template: _.template($('.key-header').html()),
+    events: {
+        "click .keys": "saveThat"
+    },
+
+    initialize: function() {
+        
+        $('.save-it').append(this.$el.html(this.template(this.model.attributes)));
+  
+
+        $('.keys').click(function(clicked){
+
+            var currentKey = this.innerText;
+            var storedInfo = JSON.parse(localStorage.
+                getItem(currentKey));
+            $('.stored-fill').prepend(currentKey);
+            new storedView(storedInfo);
+        });
+
+        $('.clearStorage').click(function(){
+            localStorage.clear();
+        });
+    },
+
+    saveThat: function() {
+        console.log('save it N0W');
+    }
+})
+
 var moreInfoView = Backbone.View.extend({
     el: '.additional-fill',
 
@@ -347,6 +379,28 @@ var storedView = Backbone.View.extend({
             model: item
         });
         this.$el.append(stored.render().el);
+    }
+});
+
+var storedKeyView = Backbone.View.extend({
+    el: '.stored-info',
+
+    initialize: function(storedKey){
+        this.collection = new storedKeyList(storedKey);
+        this.render();
+    },
+
+    render: function() {
+        this.collection.each(function(item){
+            this.renderKey(item);
+        }, this);
+    },
+
+    renderKey: function(item){
+        var storedKey = new storedKeyHeaderView({
+            model: item
+        });
+        this.$el.append(storedKey.render().el);
     }
 });
 

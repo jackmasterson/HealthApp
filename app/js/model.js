@@ -27,3 +27,9 @@ var storedItem = Backbone.Model.extend({
         item: "nothing stored locally!"
     }
 });
+
+var storedKeyItem = Backbone.Model.extend({
+    defaults: {
+        item: "no keys to show yet!"
+    }
+});

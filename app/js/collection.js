@@ -14,3 +14,7 @@ var additionalList = Backbone.Collection.extend({
 var storedInfoList = Backbone.Collection.extend({
 	model: storedItem
 });
+
+var storedKeyList = Backbone.Collection.extend({
+	model: storedKeyItem
+});
