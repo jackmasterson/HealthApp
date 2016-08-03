@@ -21,3 +21,9 @@ var additionalItem = Backbone.Model.extend({
 		item: "nothing selected yet!"
 	}
 });
+
+var storedItem = Backbone.Model.extend({
+    defaults: {
+        item: "nothing stored locally!"
+    }
+});

@@ -9,10 +9,6 @@ $(function() {
             var calMin = document.getElementsByClassName("minBar");
             var calMax = document.getElementsByClassName("maxBar");
 
-            //when user clicks the search button, this function
-            //grabs the information out of the search,
-            //calorie minimum, and calorie maximum bars;
-            //if left blank, the search will return random foods
             $(".searchButton").click(function() {
                 $('.additional-info').hide();
 
@@ -23,7 +19,28 @@ $(function() {
                 $('.search-fill').slideDown();
 
             });
+                var len = localStorage.length;
 
+                for ( var i = 0; i < len; ++i ) {
+
+                  var key = localStorage.key( i );
+                  var keys = "<h1 class='keys'>"+key+"</h1>";
+                  $('.save-it').append(keys);
+
+                }
+
+                $('.keys').click(function(clicked){
+
+                    var currentKey = this.innerText;
+                    var storedInfo = JSON.parse(localStorage.
+                        getItem(currentKey));
+    
+                    new storedView(storedInfo);
+                });
+
+                $('.clearStorage').click(function(){
+                    localStorage.clear();
+                });
         },
 
         //initializes the API call to Nutritionix API
@@ -90,37 +107,10 @@ $(function() {
 
                 }
 
-                //using Underscore, makes sure the array foodInfo
-                //doesn't contain duplicates, then initiates
-                //a foodListView from those unique strings
                 var uniqueFood = _.uniq(foodInfo);
-            //    var uniqueAdditional = _.uniq(additionalInfo);
                 new foodListView(uniqueFood);
-               // console.log(localStorage);
-              /*  if(localStorage.getItem('today')){
-                    //$('.meals-eaten-table').html(localStorage.getItem('today'));
-                    var storedInfo = JSON.parse(localStorage.getItem('today'));
-                    new savedFoodView(storedInfo);
-                }*/
-                for ( var i = 0, len = localStorage.length; i < len; ++i ) {
-                  var key = localStorage.key( i );
 
-                //  console.log(date);
-                  var keys = "<h1 class='keys'>"+key+"</h1>";
-                  $('.save-it').append(keys);
 
-                }
-                $('.keys').click(function(clicked){
-               //     console.log(this.innerText);
-                    var currentKey = this.innerText;
-                    var storedInfo = JSON.parse(localStorage.getItem(currentKey));
-                    console.log(storedInfo);
-                    new savedFoodView(storedInfo);
-                });
-
-                $('.clearStorage').click(function(){
-                    localStorage.clear();
-                });
 
                 
             //    new additionalInfoView(uniqueAdditional);

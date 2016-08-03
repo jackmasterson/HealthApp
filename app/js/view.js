@@ -207,6 +207,18 @@ var additionalView = Backbone.View.extend({
     }
 });
 
+var storedItView = Backbone.View.extend({
+    tagName: 'div',
+    className: 'stored-info',
+    template: _.template($('.saved-temp').html()),
+
+    initialize: function() {
+        $('.stored-fill').append(this.$el.html(this.template(this.model.attributes)));
+
+        return this;
+    }
+});
+
 var moreInfoView = Backbone.View.extend({
     el: '.additional-fill',
 
@@ -299,7 +311,7 @@ var additionalInfoView = Backbone.View.extend({
         this.$el.empty();
         this.collection = new additionalList(initialAdditional);
         this.render();
-        console.log(initialAdditional);
+    //    console.log(initialAdditional);
 
     },
 
@@ -313,6 +325,28 @@ var additionalInfoView = Backbone.View.extend({
             model: item
         });
         this.$el.append(additional.render().el);
+    }
+});
+
+var storedView = Backbone.View.extend({
+    el: '.stored-fill',
+
+    initialize: function(storedInfo){
+        this.collection = new storedInfoList(storedInfo);
+        this.render();
+    },
+
+    render: function() {
+        this.collection.each(function(item){
+            this.renderStored(item);
+        }, this);
+    },
+
+    renderStored: function(item){
+        var stored = new storedItView({
+            model: item
+        });
+        this.$el.append(stored.render().el);
     }
 });
 

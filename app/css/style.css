@@ -171,3 +171,6 @@ a, button {
 
 .removeStorage {
   cursor: pointer; }
+
+.stored-fill {
+  color: white; }

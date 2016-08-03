@@ -10,3 +10,7 @@ var savedFoodList = Backbone.Collection.extend({
 var additionalList = Backbone.Collection.extend({
 	model: additionalItem
 });
+
+var storedInfoList = Backbone.Collection.extend({
+	model: storedItem
+});
