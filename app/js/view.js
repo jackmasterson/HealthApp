@@ -228,7 +228,7 @@ var storedKeyHeaderView = Backbone.View.extend({
     },
 
     initialize: function() {
-        
+        var that = this;
         $('.save-it').append(this.$el.html(this.template(this.model.attributes)));
   
 
@@ -238,7 +238,9 @@ var storedKeyHeaderView = Backbone.View.extend({
             var storedInfo = JSON.parse(localStorage.
                 getItem(currentKey));
             $('.stored-fill').prepend(currentKey);
+
             new storedView(storedInfo);
+        
         });
 
         $('.clearStorage').click(function(){
