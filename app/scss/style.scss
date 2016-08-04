@@ -25,12 +25,10 @@ a, button {
 	cursor: pointer;
 }
 
-.search-li {
-	margin: 1%;
-}
-
 .search-ul {
-	width: 10vw;
+	width: 100vw;
+	position: fixed;
+	padding: 0;
 }
 
 .food-temp {
@@ -40,8 +38,15 @@ a, button {
 }
 
 .searchButton {
-	margin-left: 20px;
-	width: 100px; 
+	width: 150px;
+	vertical-align: middle;
+}
+
+.searchBar {
+	width: 300px;
+	vertical-align: middle;
+	font-size: 300px;
+	margin-top: 30vh;
 }
 
 .shade {
@@ -115,8 +120,8 @@ a, button {
 .calorie-counter {
 	position: fixed;
 	margin: 0;
-	left: 6vw;
-	top: 13vh;
+	right: 10vw;
+	bottom: 16vh;
 	display: none;
 }
 
@@ -134,10 +139,11 @@ a, button {
 }
 
 .attribute {
-	background-color: white;
+	color: gray;
 	position: fixed;
 	width: 100vw;
-	bottom: 0.5vh;
+	bottom: 0.05vh;
+	left: 35vw;
 }
 
 .main-header {
@@ -160,7 +166,7 @@ a, button {
 
 .meals-eaten-table {
 	width: 24vw;
-	height: 70vh;
+	height: 50vh;
 	position: fixed;
 	right: 3vw;
 	top: 16vh;
@@ -193,8 +199,13 @@ a, button {
 	color: white;
 	width: 20vw;
 	position: fixed;
-	top: 35vh;
+	top: 10vh;
 	left: 5vw;
+	font-size: 10px;
+}
+
+.save-button {
+	display: none;
 }
 
 .keys {
@@ -212,6 +223,13 @@ a, button {
 
 .stored-fill {
 	color: white;
+	position: fixed;
+	top: 20vh;
+	left: 2vw;
+	z-index: 10;
+	height: 50vh;
+	width: 25vw;
+	overflow-y: scroll;
 }
 
 .stored-key-ul {

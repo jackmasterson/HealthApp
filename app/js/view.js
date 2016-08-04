@@ -214,7 +214,7 @@ var storedItView = Backbone.View.extend({
 
     initialize: function() {
         $('.stored-fill').append(this.$el.html(this.template(this.model.attributes)));
-
+        
         return this;
     }
 });
@@ -248,8 +248,11 @@ var storedKeyHeaderView = Backbone.View.extend({
         });
     },
 
-    saveThat: function() {
+    saveThat: function(clicked) {
         console.log('save it N0W');
+        console.log(this);
+        console.log(clicked);
+        this.$el.hide();
     }
 })
 

@@ -16,6 +16,11 @@ $(function() {
                 that.calMin = $(calMin[0]).val();
                 that.calMax = $(calMax[0]).val();
                 that.nutrInit();
+                $('.search-ul').animate({
+                    bottom: '2vh',
+                    right: '32vw'
+                });
+                $('.save-button').show();
                 $('.search-fill').slideDown();
 
             });
